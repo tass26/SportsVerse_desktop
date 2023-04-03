@@ -18,6 +18,12 @@ public class Emplacement_choix {
     public Emplacement_choix() {
     }
 
+    public Emplacement_choix(String governorat, String delegation, String localite) {
+        this.governorat = governorat;
+        this.delegation = delegation;
+        this.localite = localite;
+    }
+
     public Emplacement_choix(int id, String governorat, String delegation, String localite) {
         this.id = id;
         this.governorat = governorat;

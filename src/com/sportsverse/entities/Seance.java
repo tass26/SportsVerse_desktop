@@ -5,7 +5,7 @@
  */
 package com.sportsverse.entities;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  *
@@ -22,6 +22,16 @@ public class Seance {
     private String message;
 
     public Seance() {
+    }
+
+    public Seance(User C, Emplacement E, Date date, String etat, String duree, String adresse_client, String message) {
+        this.C = C;
+        this.E = E;
+        this.date = date;
+        this.etat = etat;
+        this.duree = duree;
+        this.adresse_client = adresse_client;
+        this.message = message;
     }
 
     public Seance(int id, User C, Emplacement E, Date date, String etat, String duree, String adresse_client, String message) {
