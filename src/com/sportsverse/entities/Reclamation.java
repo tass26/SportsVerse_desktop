@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class Reclamation {
     private int id ;
-    private User u;
+    private int id_user ;
     private String sujet;
     private String description;
     private String etat;
@@ -23,13 +23,23 @@ public class Reclamation {
     public Reclamation() {
     }
 
-    public Reclamation(int id, User u, String sujet, String description, String etat, Date date, String nom_client) {
-        this.id = id;
-        this.u = u;
+    public Reclamation(int id_user, String sujet, String description, String etat,  String nom_client) {
+        this.id_user = id_user;
         this.sujet = sujet;
         this.description = description;
         this.etat = etat;
-        this.date = date;
+      //  this.date = date;
+        this.nom_client = nom_client;
+    }
+    
+
+    public Reclamation(int id, int id_user, String sujet, String description, String etat,  String nom_client) {
+        this.id = id;
+        this.id_user = id_user;
+        this.sujet = sujet;
+        this.description = description;
+        this.etat = etat;
+        //this.date = date;
         this.nom_client = nom_client;
     }
 
@@ -37,8 +47,8 @@ public class Reclamation {
         return id;
     }
 
-    public User getU() {
-        return u;
+    public  int getid_user() {
+        return id_user;
     }
 
     public String getSujet() {
@@ -65,8 +75,8 @@ public class Reclamation {
         this.id = id;
     }
 
-    public void setU(User u) {
-        this.u = u;
+    public void setid_user(int id_user) {
+        this.id_user = id_user;
     }
 
     public void setSujet(String sujet) {
@@ -87,6 +97,11 @@ public class Reclamation {
 
     public void setNom_client(String nom_client) {
         this.nom_client = nom_client;
+    }
+
+    @Override
+    public String toString() {
+        return "Reclamation{" + "id=" + id + ", id_user=" + id_user + ", sujet=" + sujet + ", description=" + description + ", etat=" + etat + ", date=" + date + ", nom_client=" + nom_client + '}';
     }
     
     

@@ -11,15 +11,20 @@ package com.sportsverse.entities;
  */
 public class Reponse {
     private int id ;
-    private Reclamation R;
+    private int id_reclamation ;
     private String description;
 
     public Reponse() {
     }
 
-    public Reponse(int id, Reclamation R, String description) {
+    public Reponse(int id_reclamation, String description) {
+        this.id_reclamation = id_reclamation;
+        this.description = description;
+    }
+
+    public Reponse(int id, int id_reclamation , String description) {
         this.id = id;
-        this.R = R;
+        this.id_reclamation = id_reclamation;
         this.description = description;
     }
 
@@ -27,8 +32,8 @@ public class Reponse {
         return id;
     }
 
-    public Reclamation getR() {
-        return R;
+    public int getid_reclamation() {
+        return id_reclamation;
     }
 
     public String getDescription() {
@@ -39,12 +44,17 @@ public class Reponse {
         this.id = id;
     }
 
-    public void setR(Reclamation R) {
-        this.R = R;
+    public void setid_reclamation(int id_reclamation) {
+        this.id_reclamation =id_reclamation ;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Reponse{" + "id=" + id + ", id_reclamation=" + id_reclamation + ", description=" + description + '}';
     }
     
 }
