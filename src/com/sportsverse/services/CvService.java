@@ -38,8 +38,8 @@ public class CvService implements NewInterface<Cv>{
 
         if (rs.next()) {
             int duree_experience = rs.getInt("duree_experience");
-            int user_id = rs.getInt("user_id");
-            User u = new User(user_id);
+            int coach_id = rs.getInt("coach_id");
+            User u = new User(coach_id);
             String certification = rs.getString("certification");
             String description = rs.getString("description");
             String image = rs.getString("image");
@@ -61,7 +61,7 @@ public class CvService implements NewInterface<Cv>{
         try {
             ste = cnx.prepareStatement(sql);
             ste.setInt(1, cv.getDuree_experience());
-            ste.setInt(2, cv.getU().getId());
+            ste.setInt(2, cv.getCoach().getId());
             ste.setString(3, cv.getCertification());
             ste.setString(4, cv.getDescription());
             ste.setString(5, cv.getImage());

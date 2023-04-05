@@ -7,7 +7,14 @@ package com.sportsverse.tests;
 
 import com.sportsverse.entities.Cv;
 import com.sportsverse.services.CvService;
+import com.sportsverse.entities.Emplacement;
+import com.sportsverse.entities.Seance;
+import com.sportsverse.entities.User;
+import com.sportsverse.service.EmplacementService;
+import com.sportsverse.service.SeanceService;
+import com.sportsverse.service.UserService;
 import com.sportsverse.tools.MaConnection;
+import java.sql.Date;
 
 /**
  *
@@ -20,13 +27,30 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+
         
         Cv cv = new Cv(5,  "fitness coach certif", "finess coach desc", "img.jpg", "pro", 30);
         CvService cs = new CvService();
          cs.ajouter(cv);
         
         System.out.println(cs.afficher());
-     MaConnection m =MaConnection.getInstance();
+        MaConnection m =MaConnection.getInstance();
+
+        EmplacementService ps = new EmplacementService();
+        UserService us = new UserService();
+        SeanceService ss= new SeanceService();
+        Emplacement p = new Emplacement(2,"Tunis","Sidi Hssin","Maison","17 rue de bulgarie","jayara");
+        User u = us.read(1);
+        Date dateres=Date.valueOf("2023-04-03");
+        Seance s = new Seance(1,u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
+        ss.ajouter(s);
+        ss.afficher();
+        //ps.ajouter(p);
+       
+        //ps.supprimer(p);
+         //System.out.println( ps.afficher());
+         //System.out.println(ps.read(2));
+
     }
     
 }

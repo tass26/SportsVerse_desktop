@@ -30,21 +30,21 @@ public class ActiviteService implements NewInterface<Activite>{
         cnx = MaConnection.getInstance().getCnx();
     }
     
-    public Activite getActiviteById(int ActiviteId) throws SQLException {
+    public Activite getActiviteById(int id) throws SQLException {
         String sql = "SELECT * FROM activite WHERE id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
-        ste.setInt(1, ActiviteId);
+        ste.setInt(1, id);
         ResultSet rs = ste.executeQuery();
         List<Cv> cvs = new ArrayList<>();
 
         if (rs.next()) {
-            int duree_experience = rs.getInt("duree_experience");
-            String certification = rs.getString("certification");
+            
+            String nom = rs.getString("nom");
             String description = rs.getString("description");
-            String level = rs.getString("type");
-            Cv cv = new Cv(id, duree_experience, u, activites, certification, description, level, level, id);
-            cvs.add(cv);
-            return cv;
+            String type = rs.getString("type");
+            Activite activite = new Activite(id, nom, description, type);
+            activite.setCvs(getCvsForActivite(id));
+            return activite;
         }
         return null;
     }
@@ -56,9 +56,9 @@ public class ActiviteService implements NewInterface<Activite>{
         PreparedStatement ste;
         try {
             ste = cnx.prepareStatement(sql);
-            ste.setString(1, cv.getNom());
-            ste.setString(4, cv.getDescription());
-            ste.setString(5, cv.getType());
+            ste.setString(1, activite.getNom());
+            ste.setString(4, activite.getDescription());
+            ste.setString(5, activite.getType());
             ste.executeUpdate();
             System.out.println("Activite ajoutee !");
         } catch (SQLException ex) {
@@ -75,7 +75,7 @@ public class ActiviteService implements NewInterface<Activite>{
             ResultSet rs = ste.executeQuery(sql);
             while(rs.next()){
                 Activite a = new Activite(
-                    rs.getInt(1),
+                    rs.getString(1),
                     rs.getString(3),
                     rs.getString(3));
                 activites.add(a);
@@ -86,22 +86,27 @@ public class ActiviteService implements NewInterface<Activite>{
         return activites;
     }
     
-    public List<Activite> getCvsForActivite(int activiteId) throws SQLException {
-        String sql = "SELECT * FROM activite WHERE cv_id = ?";
-        PreparedStatement stmt = cnx.prepareStatement(sql);
-        stmt.setInt(1, cvId);
-        ResultSet rs = stmt.executeQuery();
+    public List<Cv> getCvsForActivite(int activiteId) throws SQLException {
+        String sql = "SELECT * FROM cv WHERE activite_id = ?";
+        PreparedStatement ste = cnx.prepareStatement(sql);
+        ste.setInt(1, activiteId);
+        ResultSet rs = ste.executeQuery();
 
-        List<Activite> activites = new ArrayList<>();
+        List<Cv> cvs = new ArrayList<>();
         while (rs.next()) {
             int id = rs.getInt("id");
-            String nom = rs.getString("nom");
+            int duree_experience = rs.getInt("duree_experience");
+            int coach_id = rs.getInt("coach_id");
+            User u = new User(coach_id);
+            String certification = rs.getString("certification");
             String description = rs.getString("description");
-            String type = rs.getString("type");
-            Activite activite = new Activite(id, nom, description, type);
-            activites.add(activite);
+            String image = rs.getString("image");
+            String level = rs.getString("level");
+            double tarif = rs.getDouble("tarif");
+            Cv cv = new Cv(id, duree_experience, u, new ArrayList<Activite>(), certification, description, image, level, tarif);
+            cvs.add(cv);
         }
-        return activites;
+        return cvs;
     }
     
     public void addCvToActivite(int cvId, Activite activite) throws SQLException {

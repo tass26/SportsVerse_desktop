@@ -20,6 +20,15 @@ public class Emplacement {
     public Emplacement() {
     }
 
+    public Emplacement(String governorat, String delegation, String type, String adresse, String localite) {
+        this.governorat = governorat;
+        this.delegation = delegation;
+        this.type = type;
+        this.adresse = adresse;
+        this.localite = localite;
+    }
+    
+
     public Emplacement(int id, String governorat, String delegation, String type, String adresse, String localite) {
         this.id = id;
         this.governorat = governorat;
@@ -75,6 +84,11 @@ public class Emplacement {
 
     public void setLocalite(String localite) {
         this.localite = localite;
+    }
+
+    @Override
+    public String toString() {
+        return "Emplacement{" + "id=" + id + ", governorat=" + governorat + ", delegation=" + delegation + ", type=" + type + ", adresse=" + adresse + ", localite=" + localite + '}';
     }
     
     
