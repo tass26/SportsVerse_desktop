@@ -5,6 +5,8 @@
  */
 package com.sportsverse.tests;
 
+import com.sportsverse.entities.Cv;
+import com.sportsverse.services.CvService;
 import com.sportsverse.tools.MaConnection;
 
 /**
@@ -18,6 +20,12 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Cv cv = new Cv(5,  "fitness coach certif", "finess coach desc", "img.jpg", "pro", 30);
+        CvService cs = new CvService();
+         cs.ajouter(cv);
+        
+        System.out.println(cs.afficher());
      MaConnection m =MaConnection.getInstance();
     }
     
