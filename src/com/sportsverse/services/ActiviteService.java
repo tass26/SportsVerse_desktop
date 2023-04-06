@@ -97,13 +97,13 @@ public class ActiviteService implements NewInterface<Activite>{
             int id = rs.getInt("id");
             int duree_experience = rs.getInt("duree_experience");
             int coach_id = rs.getInt("coach_id");
-            User u = new User(coach_id);
+            User coach = new User(coach_id);
             String certification = rs.getString("certification");
             String description = rs.getString("description");
             String image = rs.getString("image");
             String level = rs.getString("level");
             double tarif = rs.getDouble("tarif");
-            Cv cv = new Cv(id, duree_experience, u, new ArrayList<Activite>(), certification, description, image, level, tarif);
+            Cv cv = new Cv(id, coach, duree_experience,  new ArrayList<Activite>(), certification, description, image, level, tarif);
             cvs.add(cv);
         }
         return cvs;
@@ -120,5 +120,15 @@ public class ActiviteService implements NewInterface<Activite>{
     @Override
     public void supprimer(Activite t) {
          
+    }
+
+    @Override
+    public Activite read(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Activite t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

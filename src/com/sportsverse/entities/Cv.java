@@ -14,22 +14,22 @@ import java.util.List;
  */
 public class Cv {
     private int id ;
-    private int duree_experience;
     private User coach;
+    private int duree_experience;
     private List<Activite> activites = new ArrayList<>();
     private String certification;
     private String description;
     private String image;
-    private String level ;
+    private String level;
     private double tarif;
 
     public Cv() {
     }
 
-    public Cv(int id, int duree_experience, User coach, List<Activite> activites, String certification, String description, String image, String level, double tarif) {
-        this.id = id;
-        this.duree_experience = duree_experience;
+    public Cv(int id, User coach, int duree_experience, List<Activite> activites, String certification, String description, String image, String level, double tarif) {
+        this.id = id;        
         this.coach = coach;
+        this.duree_experience = duree_experience;
         this.activites = activites;
         this.certification = certification;
         this.description = description;
@@ -38,10 +38,10 @@ public class Cv {
         this.tarif = tarif;
     }
     
-    public Cv(int id, int duree_experience, User coach, String certification, String description, String image, String level, double tarif) {
-        this.id = id;
-        this.duree_experience = duree_experience;
+    public Cv(int id, User coach, int duree_experience, String certification, String description, String image, String level, double tarif) {
+        this.id = id;        
         this.coach = coach;
+        this.duree_experience = duree_experience;
         this.certification = certification;
         this.description = description;
         this.image = image;
@@ -49,9 +49,9 @@ public class Cv {
         this.tarif = tarif;
     }
 
-    public Cv(int duree_experience, User coach, String certification, String description, String image, String level, double tarif) {
-        this.duree_experience = duree_experience;
+    public Cv( User coach, int duree_experience, String certification, String description, String image, String level, double tarif) {
         this.coach = coach;
+        this.duree_experience = duree_experience;
         this.certification = certification;
         this.description = description;
         this.image = image;
@@ -61,7 +61,6 @@ public class Cv {
     
     public Cv(int duree_experience,String certification, String description, String image, String level, double tarif) {
         this.duree_experience = duree_experience;
-        
         this.certification = certification;
         this.description = description;
         this.image = image;
@@ -80,10 +79,6 @@ public class Cv {
 
     public User getCoach() {
         return coach;
-    }
-    
-    public void setCoach(User u) {
-        this.coach = coach;
     }
 
     public String getCertification() {
@@ -114,6 +109,9 @@ public class Cv {
         this.duree_experience = duree_experience;
     }
 
+    public void setCoach(User u) {
+        this.coach = coach;
+    }
     
     public List<Activite> getActivites() {
         return activites;

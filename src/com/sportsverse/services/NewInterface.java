@@ -11,8 +11,10 @@ import java.util.List;
  *
  * @author Achref
  */
-public interface NewInterface<T> {
+public interface NewInterface <T>{
+    public T read(int id);
     public void ajouter(T t);
     public List<T> afficher();
     public void supprimer(T t);
+    public void update(T t);
 }

@@ -26,6 +26,8 @@ import java.util.logging.Logger;
 public class CvService implements NewInterface<Cv>{
     String sql;
     Connection cnx;
+    UserService us = new UserService();
+
     public CvService() {
         cnx = MaConnection.getInstance().getCnx();
     }
@@ -39,13 +41,13 @@ public class CvService implements NewInterface<Cv>{
         if (rs.next()) {
             int duree_experience = rs.getInt("duree_experience");
             int coach_id = rs.getInt("coach_id");
-            User u = new User(coach_id);
+            User coach = new User(coach_id);
             String certification = rs.getString("certification");
             String description = rs.getString("description");
             String image = rs.getString("image");
             String level = rs.getString("level");
             double tarif = rs.getDouble("tarif");
-            Cv cv = new Cv(id, duree_experience, u, new ArrayList<Activite>(), certification, description, image, level, tarif);
+            Cv cv = new Cv(id, coach, duree_experience,  new ArrayList<Activite>(), certification, description, image, level, tarif);
             cv.setActivites(getActivitesForCv(id));
             return cv;
         }
@@ -54,14 +56,14 @@ public class CvService implements NewInterface<Cv>{
     
     @Override
     public void ajouter(Cv cv) {
-        sql = "insert into cv(duree_experience,u,certification,"
+        sql = "insert into cv(duree_experience,coach,certification,"
                 + "description,image,level,tarif)"
                 + " values(?,?,?,?,?,?,?)";
         PreparedStatement ste;
         try {
             ste = cnx.prepareStatement(sql);
-            ste.setInt(1, cv.getDuree_experience());
-            ste.setInt(2, cv.getCoach().getId());
+            ste.setInt(1, cv.getCoach().getId());
+            ste.setInt(2, cv.getDuree_experience());
             ste.setString(3, cv.getCertification());
             ste.setString(4, cv.getDescription());
             ste.setString(5, cv.getImage());
@@ -84,12 +86,13 @@ public class CvService implements NewInterface<Cv>{
             while(rs.next()){
                 Cv c = new Cv(
                     rs.getInt(1),
-                    
-                    rs.getString(3),
-                    rs.getString(3),
-                    rs.getString(3),
-                    rs.getString(3),
-                    rs.getDouble(4));
+                    us.read(rs.getInt("coach_id_id")),
+                    rs.getInt("duree_experience"),
+                    rs.getString("certification"),
+                    rs.getString("description"),
+                    rs.getString("image"),
+                    rs.getString("level"),
+                    rs.getDouble("tarif"));
                 cvs.add(c);
             }
         } catch (SQLException ex) {
@@ -127,6 +130,16 @@ public class CvService implements NewInterface<Cv>{
     @Override
     public void supprimer(Cv t) {
          
+    }
+
+    @Override
+    public Cv read(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void update(Cv t) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

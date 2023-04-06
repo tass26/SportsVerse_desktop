@@ -10,9 +10,9 @@ import com.sportsverse.services.CvService;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Seance;
 import com.sportsverse.entities.User;
-import com.sportsverse.service.EmplacementService;
-import com.sportsverse.service.SeanceService;
-import com.sportsverse.service.UserService;
+import com.sportsverse.services.EmplacementService;
+import com.sportsverse.services.SeanceService;
+import com.sportsverse.services.UserService;
 import com.sportsverse.tools.MaConnection;
 import java.sql.Date;
 
@@ -29,12 +29,7 @@ public class Main {
         // TODO code application logic here
 
         
-        Cv cv = new Cv(5,  "fitness coach certif", "finess coach desc", "img.jpg", "pro", 30);
-        CvService cs = new CvService();
-         cs.ajouter(cv);
         
-        System.out.println(cs.afficher());
-        MaConnection m =MaConnection.getInstance();
 
         EmplacementService ps = new EmplacementService();
         UserService us = new UserService();
@@ -45,6 +40,12 @@ public class Main {
         Seance s = new Seance(1,u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
         ss.ajouter(s);
         ss.afficher();
+        
+        Cv cv = new Cv(u, 2,  "fitness coach certif", "finess coach desc", "img.jpg", "pro", 30);
+        CvService cs = new CvService();
+         cs.ajouter(cv);
+        
+        System.out.println(cs.afficher());
         //ps.ajouter(p);
        
         //ps.supprimer(p);

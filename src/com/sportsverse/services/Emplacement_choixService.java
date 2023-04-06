@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sportsverse.service;
+package com.sportsverse.services;
 
+import com.sportsverse.services.*;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Emplacement_choix;
 import com.sportsverse.tools.MaConnection;
