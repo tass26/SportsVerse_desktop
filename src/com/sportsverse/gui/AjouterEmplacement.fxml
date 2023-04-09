@@ -136,7 +136,7 @@
                         <Font name="Edwardian Script ITC" size="36.0" />
                      </font>
                   </Label>
-                  <Button fx:id="btn_Ajouter" layoutX="196.0" layoutY="398.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #808080;" text="Ajouter" textFill="#1b1b1b">
+                  <Button fx:id="btn_Ajouter" layoutX="196.0" layoutY="398.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #808080;" text="Ajouter" textFill="#1b1b1b">
                      <font>
                         <Font name="Times New Roman Bold" size="16.0" />
                      </font>

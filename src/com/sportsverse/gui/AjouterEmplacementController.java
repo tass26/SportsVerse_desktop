@@ -5,17 +5,25 @@
  */
 package com.sportsverse.gui;
 
+import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Emplacement_choix;
+import com.sportsverse.service.EmplacementService;
 import com.sportsverse.service.Emplacement_choixService;
+import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -50,6 +58,10 @@ public class AjouterEmplacementController implements Initializable {
     private String[] Type = {"Maison","Park","Salle de sport"};
     @FXML
     private ComboBox<String> ListLocalite;
+    EmplacementService epS = new EmplacementService();
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     /**
      * Initializes the controller class.
      */
@@ -68,6 +80,7 @@ public class AjouterEmplacementController implements Initializable {
         ListGovernorat.getItems().addAll(governorats);
         ListDelegation.getItems().addAll(delegations);
         ListLocalite.getItems().addAll(localites);
+        TypeEmplacement.getItems().addAll(Type);
         
     }    
 
@@ -96,7 +109,25 @@ public class AjouterEmplacementController implements Initializable {
     }
 
     @FXML
-    private void Reserver(ActionEvent event) {
+    private void Ajouter(ActionEvent event) {
+        String gov = ListGovernorat.getValue();
+        String delg = ListDelegation.getValue();
+        String loc = ListLocalite.getValue();
+        String typ = TypeEmplacement.getValue();
+        String add = Adresse.getText();
+        Emplacement emp = new Emplacement(gov,delg,typ,add,loc);
+        epS.ajouter(emp);
+                FXMLLoader loder = new FXMLLoader(getClass().
+                getResource("ReserverSeance.fxml"));
+        try {
+            root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
     

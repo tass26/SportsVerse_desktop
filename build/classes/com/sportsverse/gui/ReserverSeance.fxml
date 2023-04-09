@@ -140,7 +140,7 @@
                   <DatePicker fx:id="DatePicker" layoutX="74.0" layoutY="127.0" prefHeight="33.0" prefWidth="377.0" promptText="Choisir une date" style="-fx-background-color: #1E1E1E;" />
                   <ComboBox fx:id="CBDuree" layoutX="74.0" layoutY="173.0" prefHeight="27.0" prefWidth="374.0" promptText="Duree de la séance" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
                   <ComboBox fx:id="CBEmplacemnt" layoutX="76.0" layoutY="211.0" prefHeight="30.0" prefWidth="374.0" promptText="Emplacement souhaité" />
-                  <Button fx:id="btnAjoutEmplacement" layoutX="80.0" layoutY="248.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="368.0" style="-fx-background-color: #1F1F1F;" text="Ajouter votre emplacement ?" textFill="#d7d6d6">
+                  <Button fx:id="btnAjoutEmplacement" layoutX="80.0" layoutY="248.0" mnemonicParsing="false" onAction="#RedirAjoutEmplacement" prefHeight="48.0" prefWidth="368.0" style="-fx-background-color: #1F1F1F;" text="Ajouter votre emplacement ?" textFill="#d7d6d6">
                      <font>
                         <Font name="French Script MT" size="24.0" />
                      </font>
