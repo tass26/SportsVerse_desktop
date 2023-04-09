@@ -6,8 +6,6 @@
 package com.sportsverse.gui;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -15,9 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  *
@@ -29,11 +27,15 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
-            primaryStage.setScene(new Scene(root));
             //primaryStage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(root);
+            Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");
+            primaryStage.getIcons().add(image);
+            primaryStage.setTitle("Reserver Votre Seance");
+            primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(NewFXMain.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
     }
 
