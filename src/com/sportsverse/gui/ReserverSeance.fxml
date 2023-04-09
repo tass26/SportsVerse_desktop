@@ -24,7 +24,7 @@
          <left>
             <VBox prefHeight="229.0" prefWidth="139.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
+                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirAccueil" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -38,7 +38,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="Login" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Login" textFill="#fcfcfb">
+                  <Button fx:id="Login" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Login" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Login" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -61,7 +61,7 @@
                         <Insets left="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Button fx:id="Produit" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Produit" textFill="#fcfcfb">
+                  <Button fx:id="Produit" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirProduit" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Produit" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -75,7 +75,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="Panier" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Panier" textFill="#fcfcfb">
+                  <Button fx:id="Panier" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirPanier" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Panier" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -93,7 +93,7 @@
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
-                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
+                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirReserver" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -107,7 +107,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
+                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirSuivi" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -137,8 +137,8 @@
                         <Font name="Edwardian Script ITC" size="36.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="DatePicker" layoutX="81.0" layoutY="127.0" prefHeight="33.0" prefWidth="370.0" promptText="Choisir une date" style="-fx-background-color: #1E1E1E;" />
-                  <ComboBox fx:id="CBDuree" layoutX="79.0" layoutY="173.0" prefHeight="27.0" prefWidth="369.0" promptText="Duree de la séance" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
+                  <DatePicker fx:id="DatePicker" layoutX="74.0" layoutY="127.0" prefHeight="33.0" prefWidth="377.0" promptText="Choisir une date" style="-fx-background-color: #1E1E1E;" />
+                  <ComboBox fx:id="CBDuree" layoutX="74.0" layoutY="173.0" prefHeight="27.0" prefWidth="374.0" promptText="Duree de la séance" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
                   <ComboBox fx:id="CBEmplacemnt" layoutX="76.0" layoutY="211.0" prefHeight="30.0" prefWidth="374.0" promptText="Emplacement souhaité" />
                   <Button fx:id="btnAjoutEmplacement" layoutX="80.0" layoutY="248.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="368.0" style="-fx-background-color: #1F1F1F;" text="Ajouter votre emplacement ?" textFill="#d7d6d6">
                      <font>
@@ -146,7 +146,7 @@
                      </font>
                   </Button>
                   <TextField fx:id="txt_mesage" layoutX="77.0" layoutY="309.0" prefHeight="35.0" prefWidth="378.0" promptText="Votre message" style="-fx-background-color: #FFFFFF;" />
-                  <Button fx:id="btn_reserver" layoutX="201.0" layoutY="384.0" mnemonicParsing="false" onAction="#handleButtonClicks" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #808080;" text="Réserver" textFill="#1b1b1b">
+                  <Button fx:id="btn_reserver" layoutX="201.0" layoutY="384.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #808080;" text="Réserver" textFill="#1b1b1b">
                      <font>
                         <Font name="Times New Roman Bold" size="16.0" />
                      </font>

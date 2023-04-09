@@ -124,5 +124,22 @@ public class SeanceService implements NewInterface<Seance>{
             System.out.println(ex.getMessage());
         }    
         return null;    }
+        public List<Seance> getAllSeance(int id){
+        List<Seance> seances = new ArrayList<>();
+        String sql="SELECT * from seance s , emplacement E WHERE s.emplacement_id=?";
+        try {
+            PreparedStatement ste = cnx.prepareStatement(sql);
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery();
+            while(rs.next()){
+                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
+                seances.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+        return seances;
+    }
     
 }

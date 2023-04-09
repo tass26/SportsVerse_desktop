@@ -5,9 +5,17 @@
  */
 package com.sportsverse.gui;
 
+import com.sportsverse.entities.Emplacement_choix;
+import com.sportsverse.service.Emplacement_choixService;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,12 +24,80 @@ import javafx.fxml.Initializable;
  */
 public class AjouterEmplacementController implements Initializable {
 
+    @FXML
+    private Button Accueil;
+    @FXML
+    private Button Login;
+    @FXML
+    private Button Produit;
+    @FXML
+    private Button Panier;
+    @FXML
+    private Button ReserverSeance;
+    @FXML
+    private Button SuiviSeance;
+    @FXML
+    private Button btn_Ajouter;
+    @FXML
+    private ComboBox<String> ListGovernorat;
+    @FXML
+    private ComboBox<String> ListDelegation;
+    @FXML
+    private ComboBox<String> TypeEmplacement;
+    @FXML
+    private TextField Adresse;
+    Emplacement_choixService ep = new Emplacement_choixService();
+    private String[] Type = {"Maison","Park","Salle de sport"};
+    @FXML
+    private ComboBox<String> ListLocalite;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        List<Emplacement_choix> emplacements = ep.afficher();
+        String[] governorats = new String[emplacements.size()];
+        String[] delegations = new String[emplacements.size()];
+        String[] localites = new String[emplacements.size()];
+        for (int i = 0; i < emplacements.size(); i++) {
+            governorats[i] = emplacements.get(i).getGovernorat();
+            delegations[i] = emplacements.get(i).getDelegation();
+            localites[i] = emplacements.get(i).getLocalite();
+        }
+        ListGovernorat.getItems().addAll(governorats);
+        ListDelegation.getItems().addAll(delegations);
+        ListLocalite.getItems().addAll(localites);
+        
     }    
+
+    @FXML
+    private void RedirAccueil(ActionEvent event) {
+    }
+
+    @FXML
+    private void Login(ActionEvent event) {
+    }
+
+    @FXML
+    private void RedirProduit(ActionEvent event) {
+    }
+
+    @FXML
+    private void RedirPanier(ActionEvent event) {
+    }
+
+    @FXML
+    private void RedirReserverS(ActionEvent event) {
+    }
+
+    @FXML
+    private void RedirSuiviS(ActionEvent event) {
+    }
+
+    @FXML
+    private void Reserver(ActionEvent event) {
+    }
+    
     
 }

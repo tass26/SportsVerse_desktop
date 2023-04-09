@@ -108,6 +108,11 @@ public class Seance {
     public void setMessage(String message) {
         this.message = message;
     }
+
+    @Override
+    public String toString() {
+        return "Seance{" + "id=" + id + ", C=" + C + ", E=" + E + ", date=" + date + ", etat=" + etat + ", duree=" + duree + ", adresse_client=" + adresse_client + ", message=" + message + '}';
+    }
     
     
     
