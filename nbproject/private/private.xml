@@ -2,17 +2,14 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/entities/Activite.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/SeanceService.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/tests/Main.java</file>
-            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/entities/User.java</file>
-            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/NewInterface.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/ActiviteService.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/entities/Cv.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/CvService.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/UserService.java</file>
         </group>
-=======
-        <group/>
->>>>>>> b810277b0046ccee850dc7e929daabce7e8fc834
     </open-files>
 </project-private>

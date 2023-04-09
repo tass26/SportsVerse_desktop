@@ -34,12 +34,12 @@ public class Main {
         EmplacementService ps = new EmplacementService();
         UserService us = new UserService();
         SeanceService ss= new SeanceService();
-        Emplacement p = new Emplacement(2,"Tunis","Sidi Hssin","Maison","17 rue de bulgarie","jayara");
+//        Emplacement p = new Emplacement(2,"Tunis","Sidi Hssin","Maison","17 rue de bulgarie","jayara");
         User u = us.read(1);
-        Date dateres=Date.valueOf("2023-04-03");
-        Seance s = new Seance(1,u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
-        ss.ajouter(s);
-        ss.afficher();
+//        Date dateres=Date.valueOf("2023-04-03");
+//        Seance s = new Seance(1,u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
+//        ss.ajouter(s);
+//        ss.afficher();
         
         Cv cv = new Cv(u, 2,  "fitness coach certif", "finess coach desc", "img.jpg", "pro", 30);
         CvService cs = new CvService();
