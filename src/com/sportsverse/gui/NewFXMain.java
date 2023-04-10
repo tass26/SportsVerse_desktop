@@ -6,35 +6,39 @@
 package com.sportsverse.gui;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
  * @author Achref
+
  */
 public class NewFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-          Parent root;
+
         try {
-            root = FXMLLoader.load(
-                getClass().getResource("AjouterCv.fxml"));
-        
+            Parent root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            //primaryStage.initStyle(StageStyle.UNDECORATED);
             Scene scene = new Scene(root);
-            primaryStage.setTitle("Hello World!");
+            Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");
+            primaryStage.getIcons().add(image);
+            primaryStage.setTitle("Reserver Votre Seance");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            Logger.getLogger(NewFXMain.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
-        
     }
 
     /**

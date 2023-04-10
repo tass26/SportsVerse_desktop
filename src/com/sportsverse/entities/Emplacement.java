@@ -88,8 +88,10 @@ public class Emplacement {
 
     @Override
     public String toString() {
-        return "Emplacement{" + "id=" + id + ", governorat=" + governorat + ", delegation=" + delegation + ", type=" + type + ", adresse=" + adresse + ", localite=" + localite + '}';
+        return id + " "+ governorat + " " + delegation + " " + type + " " + adresse + " " + localite ;
     }
+
+
     
     
     

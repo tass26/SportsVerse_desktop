@@ -62,6 +62,12 @@ public class Emplacement_choix {
     public void setLocalite(String localite) {
         this.localite = localite;
     }
+
+    @Override
+    public String toString() {
+        return  governorat +" "+ delegation + " " + localite ;
+    }
+    
     
     
 }
