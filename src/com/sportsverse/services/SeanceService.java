@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sportsverse.services;
+package com.sportsverse.service;
 
-import com.sportsverse.services.*;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Seance;
 import com.sportsverse.tools.MaConnection;
@@ -57,15 +56,7 @@ public class SeanceService implements NewInterface<Seance>{
             ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(sql);
             while(rs.next()){
-                Seance p = new Seance(
-                        rs.getInt(1),
-                        us.read(rs.getInt("coach_id_id")),
-                        ps.read(rs.getInt("emplacement_id")),
-                        rs.getDate("date"),
-                        rs.getString("etat"),
-                        rs.getString("duree"),
-                        rs.getString("adresse_client"),
-                        rs.getString("message"));
+                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
                 Seances.add(p);
             }
         } catch (SQLException ex) {
@@ -133,22 +124,5 @@ public class SeanceService implements NewInterface<Seance>{
             System.out.println(ex.getMessage());
         }    
         return null;    }
-        public List<Seance> getAllSeance(int id){
-        List<Seance> seances = new ArrayList<>();
-        String sql="SELECT * from seance s , emplacement E WHERE s.emplacement_id=?";
-        try {
-            PreparedStatement ste = cnx.prepareStatement(sql);
-            ste.setInt(1, id);
-            ResultSet rs = ste.executeQuery();
-            while(rs.next()){
-                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
-                seances.add(p);
-            }
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-      
-        return seances;
-    }
     
 }
