@@ -5,6 +5,9 @@
  */
 package com.sportsverse.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ASUS
@@ -14,12 +17,27 @@ public class Activite {
     private String nom;
     private String description;
     private String type;
+    private List<Cv> cvs = new ArrayList<>();
 
     public Activite() {
     }
 
+    public Activite(int id, String nom, String description, String type, List<Cv> cvs) {
+        this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.type = type;
+        this.cvs = cvs;
+    }
+    
     public Activite(int id, String nom, String description, String type) {
         this.id = id;
+        this.nom = nom;
+        this.description = description;
+        this.type = type;
+    }
+    
+    public Activite(String nom, String description, String type) {
         this.nom = nom;
         this.description = description;
         this.type = type;
@@ -56,6 +74,13 @@ public class Activite {
     public void setType(String type) {
         this.type = type;
     }
-    
+
+    public List<Cv> getCvs() {
+        return cvs;
+    }
+
+    public void setCvs(List<Cv> cvs) {
+        this.cvs = cvs;
+    }
     
 }

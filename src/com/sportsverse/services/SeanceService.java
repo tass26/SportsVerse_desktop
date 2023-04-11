@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sportsverse.service;
+package com.sportsverse.services;
 
+import com.sportsverse.services.*;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Seance;
 import com.sportsverse.tools.MaConnection;
@@ -56,7 +57,15 @@ public class SeanceService implements NewInterface<Seance>{
             ste = cnx.createStatement();
             ResultSet rs = ste.executeQuery(sql);
             while(rs.next()){
-                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
+                Seance p = new Seance(
+                        rs.getInt(1),
+                        us.read(rs.getInt("coach_id_id")),
+                        ps.read(rs.getInt("emplacement_id")),
+                        rs.getDate("date"),
+                        rs.getString("etat"),
+                        rs.getString("duree"),
+                        rs.getString("adresse_client"),
+                        rs.getString("message"));
                 Seances.add(p);
             }
         } catch (SQLException ex) {

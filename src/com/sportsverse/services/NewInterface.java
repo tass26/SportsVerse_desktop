@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sportsverse.service;
+package com.sportsverse.services;
 
 import java.util.List;
 
 /**
  *
- * @author user
+ * @author Achref
  */
 public interface NewInterface <T>{
     public T read(int id);

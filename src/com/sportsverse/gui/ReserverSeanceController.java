@@ -8,10 +8,10 @@ package com.sportsverse.gui;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Emplacement_choix;
 import com.sportsverse.entities.Seance;
-import com.sportsverse.service.EmplacementService;
-import com.sportsverse.service.Emplacement_choixService;
-import com.sportsverse.service.SeanceService;
-import com.sportsverse.service.UserService;
+import com.sportsverse.services.EmplacementService;
+import com.sportsverse.services.Emplacement_choixService;
+import com.sportsverse.services.SeanceService;
+import com.sportsverse.services.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -50,18 +50,11 @@ public class ReserverSeanceController implements Initializable {
     private Button ReserverSeance;
     @FXML
     private Button SuiviSeance;
-    @FXML
     private DatePicker DatePicker;
-    @FXML
     private ComboBox<String> CBDuree;
-    @FXML
     private ComboBox<String> CBEmplacemnt;
     @FXML
-    private Button btnAjoutEmplacement;
-    @FXML
     private TextField txt_mesage;
-    @FXML
-    private Button btn_reserver;
     EmplacementService ep = new EmplacementService();
     UserService u = new UserService();
     SeanceService ss = new SeanceService();
@@ -69,6 +62,18 @@ public class ReserverSeanceController implements Initializable {
     private Stage stage;
     private Scene scene;
     private Parent root;
+    @FXML
+    private ComboBox<?> DExp;
+    @FXML
+    private Button btn_ajouter;
+    @FXML
+    private TextField txt_mesage1;
+    @FXML
+    private ComboBox<?> NExp;
+    @FXML
+    private TextField txt_mesage2;
+    @FXML
+    private TextField txt_mesage21;
     /**
      * Initializes the controller class.
      */
@@ -133,7 +138,6 @@ public class ReserverSeanceController implements Initializable {
         ss.ajouter(s);
     }
 
-    @FXML
     private void RedirAjoutEmplacement(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("AjouterEmplacement.fxml"));

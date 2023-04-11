@@ -7,8 +7,8 @@ package com.sportsverse.gui;
 
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Emplacement_choix;
-import com.sportsverse.service.EmplacementService;
-import com.sportsverse.service.Emplacement_choixService;
+import com.sportsverse.services.EmplacementService;
+import com.sportsverse.services.Emplacement_choixService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;

@@ -19,12 +19,14 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author user
+ * @author Achref
+
  */
 public class NewFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+
         try {
             Parent root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
             //primaryStage.initStyle(StageStyle.UNDECORATED);
