@@ -107,7 +107,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirSuivi" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
+                  <Button fx:id="SuiviSeance1" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirClient" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -118,6 +118,21 @@
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@icons/reservation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirSuivi" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Espace Coach" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/coach.png" />
                            </image></ImageView>
                      </graphic>
                   </Button>
@@ -151,6 +166,10 @@
                         <Font name="Times New Roman Bold" size="16.0" />
                      </font>
                   </Button>
+                  <Label fx:id="ControleDate" layoutX="463.0" layoutY="126.0" prefHeight="35.0" prefWidth="82.0" textFill="RED" />
+                  <Label fx:id="ControleEmp" layoutX="465.0" layoutY="209.0" prefHeight="35.0" prefWidth="72.0" textFill="RED" />
+                  <Label fx:id="ControleDuree" layoutX="463.0" layoutY="169.0" prefHeight="35.0" prefWidth="82.0" textFill="RED" />
+                  <Label fx:id="ControleMsg" layoutX="468.0" layoutY="309.0" prefHeight="35.0" prefWidth="72.0" textFill="RED" />
                </children>
             </Pane>
          </center>

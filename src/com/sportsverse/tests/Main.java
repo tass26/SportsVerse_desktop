@@ -25,20 +25,20 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        EmplacementService ps = new EmplacementService();
+        //EmplacementService ps = new EmplacementService();
         UserService us = new UserService();
-        SeanceService ss= new SeanceService();
+        /*SeanceService ss= new SeanceService();
         Emplacement p = new Emplacement(2,"Tunis","Sidi Hssin","Maison","17 rue de bulgarie","jayara");
         User u = us.read(1);
         Date dateres=Date.valueOf("2023-04-04");
         Seance s = new Seance(u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
         ss.ajouter(s);
-        ss.afficher();
+        ss.afficher();*/
         //ps.ajouter(p);
        
         //ps.supprimer(p);
         //System.out.println( ps.afficher());
-        //System.out.println(ps.read(2));
+        System.out.println(us.getCoachs());
     }
     
 }
