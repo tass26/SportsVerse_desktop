@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="575.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CommandeAdminController">
+   <children>
+      <VBox prefHeight="575.0" prefWidth="862.0">
+         <children>
+            <HBox prefHeight="65.0" prefWidth="810.0" style="-fx-background-color: e3e4e6;">
+               <children>
+                  <Label prefHeight="66.0" prefWidth="242.0" style="-fx-background-color: f0af4d;" text="Liste Commandes" textFill="WHITE">
+                     <padding>
+                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets right="20.0" />
+               </VBox.margin>
+            </HBox>
+            <TableView fx:id="tabc" onMouseClicked="#getCategorie">
+               <columns>
+                  <TableColumn fx:id="Id" prefWidth="93.14288055896759" text="ID" />
+                  <TableColumn fx:id="User" prefWidth="93.14288055896759" text="User" />
+                  <TableColumn fx:id="CodePromo" prefWidth="141.59999084472656" text="Code Promo" />
+                  <TableColumn fx:id="Date" prefWidth="195.19998168945312" text="Date" />
+                  <TableColumn fx:id="Etat" prefWidth="373.5999755859375" text="Etat" />
+               </columns>
+               <VBox.margin>
+                  <Insets bottom="15.0" left="30.0" right="30.0" top="15.0" />
+               </VBox.margin>
+            </TableView>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="326.0" layoutY="14.0" mnemonicParsing="false" onAction="#Delete" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: cf0c0c;" text="Delete" textFill="WHITE" />
+                  <Button fx:id="livredbtn" layoutX="459.0" layoutY="14.0" mnemonicParsing="false" onAction="#Livred" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: green;" text="Livred" textFill="WHITE" />
+                  <Button layoutX="379.0" layoutY="54.0" mnemonicParsing="false" onAction="#Show" prefHeight="31.0" prefWidth="104.0" style="-fx-background-color: grey;" text="Show" textFill="WHITE" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
