@@ -96,7 +96,46 @@ public class SeanceService implements NewInterface<Seance>{
             System.out.println("L'emplacement d'id= "+t.getId()+" a ete mis a jour avec succes");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }      }
+        }      
+    }
+        public void Accepter(Seance t) {
+        String sql = "UPDATE Seance SET coach_id_id=?, emplacement_id=?, date=?, etat=?, duree=?, adresse_client=?, message=?  WHERE id = ?";
+
+        try {
+            PreparedStatement ste = cnx.prepareStatement(sql);
+            ste.setInt(1, t.getC().getId());
+            ste.setInt(2, t.getE().getId());
+            ste.setDate(3, t.getDate());
+            ste.setString(4, "Acceptée");
+            ste.setString(5, t.getDuree());
+            ste.setString(6, t.getAdresse_client());
+            ste.setString(7, t.getMessage());
+            ste.setInt(8, t.getId());
+            ste.executeUpdate();
+            System.out.println("L'emplacement d'id= "+t.getId()+" a ete mis a jour avec succes");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }      
+        }
+        public void Refuser(Seance t) {
+        String sql = "UPDATE Seance SET coach_id_id=?, emplacement_id=?, date=?, etat=?, duree=?, adresse_client=?, message=?  WHERE id = ?";
+
+        try {
+            PreparedStatement ste = cnx.prepareStatement(sql);
+            ste.setInt(1, t.getC().getId());
+            ste.setInt(2, t.getE().getId());
+            ste.setDate(3, t.getDate());
+            ste.setString(4, "Refusée");
+            ste.setString(5, t.getDuree());
+            ste.setString(6, t.getAdresse_client());
+            ste.setString(7, t.getMessage());
+            ste.setInt(8, t.getId());
+            ste.executeUpdate();
+            System.out.println("L'emplacement d'id= "+t.getId()+" a ete mis a jour avec succes");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }      
+        }
 
     @Override
     public Seance read(int id) {

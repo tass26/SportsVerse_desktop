@@ -8,10 +8,14 @@ package com.sportsverse.service;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.User;
 import com.sportsverse.tools.MaConnection;
+import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -51,4 +55,32 @@ public class UserService {
         }    
         return null;
     }
+    public List<User> getCoachs() {
+        List<User> users = new ArrayList<>();
+        String sql="select * from user";
+        Statement ste;
+        try {
+            ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(sql);
+            while(rs.next()){
+                if(rs.getString("roles").substring(2, 12).equals("ROLE_COACH")){
+                    User u = new User(
+                            rs.getInt("is_verified"),
+                            rs.getInt("is_banned"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("adresse"),
+                            rs.getString("num_tel"),
+                            rs.getString("email"),
+                            rs.getString("roles"),
+                            rs.getString("password"));                
+                    users.add(u);}
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+        return users;
+    }
+
 }
