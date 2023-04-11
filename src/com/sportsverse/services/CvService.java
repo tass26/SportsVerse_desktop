@@ -21,6 +21,7 @@ import java.util.List;
  *
  * @author Achref
  */
+
 public class CvService implements NewInterface<Cv>{
     String sql;
     Connection cnx;
@@ -54,7 +55,7 @@ public class CvService implements NewInterface<Cv>{
     
     @Override
     public void ajouter(Cv cv) {
-        sql = "insert into cv(coach,duree_experience,certification,"
+        sql = "insert into cv(coach_id,duree_experience,certification,"
                 + "description,image,level,tarif)"
                 + " values(?,?,?,?,?,?,?)";
         PreparedStatement ste;
@@ -84,7 +85,7 @@ public class CvService implements NewInterface<Cv>{
             while(rs.next()){
                 Cv c = new Cv(
                     rs.getInt(1),
-                    us.read(rs.getInt("coach_id_id")),
+                    us.read(rs.getInt("coach")),
                     rs.getInt("duree_experience"),
                     rs.getString("certification"),
                     rs.getString("description"),
@@ -136,8 +137,25 @@ public class CvService implements NewInterface<Cv>{
     }
 
     @Override
-    public void update(Cv t) {
-        
+    public void update(Cv cv) {
+         sql = "UPDATE cv SET coach,duree_experience,certification,"
+                + "description,image,level,tarif)"
+                + " values(?,?,?,?,?,?,?)";
+        PreparedStatement ste;
+        try {
+            ste = cnx.prepareStatement(sql);
+            ste.setInt(1, cv.getCoach().getId());
+            ste.setInt(2, cv.getDuree_experience());
+            ste.setString(3, cv.getCertification());
+            ste.setString(4, cv.getDescription());
+            ste.setString(5, cv.getImage());
+            ste.setString(6, cv.getLevel());
+            ste.setDouble(7, cv.getTarif());
+            ste.executeUpdate();
+            System.out.println("cv ajoutee !");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

@@ -31,7 +31,7 @@ public class ActiviteService implements NewInterface<Activite>{
     }
     
     public Activite getActiviteById(int id) throws SQLException {
-        String sql = "SELECT * FROM activite WHERE id = ?";
+        sql = "SELECT * FROM activite WHERE id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, id);
         ResultSet rs = ste.executeQuery();
@@ -57,12 +57,12 @@ public class ActiviteService implements NewInterface<Activite>{
         try {
             ste = cnx.prepareStatement(sql);
             ste.setString(1, activite.getNom());
-            ste.setString(4, activite.getDescription());
-            ste.setString(5, activite.getType());
+            ste.setString(2, activite.getDescription());
+            ste.setString(3, activite.getType());
             ste.executeUpdate();
             System.out.println("Activite ajoutee !");
         } catch (SQLException ex) {
-            Logger.getLogger(ActiviteService.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println(ex.getMessage());
         }
     }
 
@@ -87,7 +87,7 @@ public class ActiviteService implements NewInterface<Activite>{
     }
     
     public List<Cv> getCvsForActivite(int activiteId) throws SQLException {
-        String sql = "SELECT * FROM cv WHERE activite_id = ?";
+        sql = "SELECT * FROM cv WHERE activite_id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, activiteId);
         ResultSet rs = ste.executeQuery();
@@ -110,7 +110,7 @@ public class ActiviteService implements NewInterface<Activite>{
     }
     
     public void addCvToActivite(int cvId, Activite activite) throws SQLException {
-        String sql = "INSERT INTO activite (cv_id, nom) VALUES (?, ?)";
+        sql = "INSERT INTO activite (cv_id, nom) VALUES (?, ?)";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, cvId);
         ste.setString(2, activite.getNom());

@@ -109,7 +109,7 @@ public class Cv {
         this.duree_experience = duree_experience;
     }
 
-    public void setCoach(User u) {
+    public void setCoach(User coach) {
         this.coach = coach;
     }
     
