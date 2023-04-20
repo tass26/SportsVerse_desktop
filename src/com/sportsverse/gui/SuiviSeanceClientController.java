@@ -151,7 +151,10 @@ public class SuiviSeanceClientController implements Initializable {
         };
         Annuler.setCellFactory(cellFactory2);
         SeanceTable.setItems(SeanceList);
-        System.out.println(SeanceList);    }    
+        System.out.println(SeanceList);    }  
+    public void refresh(){
+        
+    }
 
     @FXML
     private void RedrRes(ActionEvent event) {

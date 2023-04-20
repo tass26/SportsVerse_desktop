@@ -85,15 +85,18 @@ public class ReserverSeanceController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        CBDuree.getItems().addAll(Duree);
+        refresh();
+       
+    }    
+    public void refresh(){
+         CBDuree.getItems().addAll(Duree);
         List<Emplacement> emplacements = ep.afficher();
         String[] emplacementChoix = new String[emplacements.size()];
         for (int i = 0; i < emplacements.size(); i++) {
             emplacementChoix[i] = emplacements.get(i).toString();
         }
         CBEmplacemnt.getItems().addAll(emplacementChoix);
-    }    
+    }
 
 
     @FXML
@@ -164,6 +167,7 @@ public class ReserverSeanceController implements Initializable {
         String adresse = u.read(2).getAdresse();
         Seance s = new Seance(u.read(3),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
         ss.ajouter(s);
+        refresh();
     }
 
     @FXML
