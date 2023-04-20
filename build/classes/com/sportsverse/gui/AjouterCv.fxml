@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="679.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.AjouterCvController">
+    <stylesheets>
+        <URL value="@reserverseance.css" />
+    </stylesheets>
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="229.0" prefWidth="139.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirAccueil" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/home.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Login" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#Login" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Login" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/login2.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label prefHeight="18.0" prefWidth="138.0" text="Shop" textFill="#c1bdbd">
+                     <font>
+                        <Font name="Times New Roman" size="12.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="Produit" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirProduit" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Produit" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/barbell.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="Panier" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirPanier" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Panier" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/wicker-basket.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+                  <Label prefHeight="18.0" prefWidth="138.0" text="Coaching" textFill="#c7c4c4">
+                     <VBox.margin>
+                        <Insets left="5.0" />
+                     </VBox.margin></Label>
+                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirReserver" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/reserve.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirSuivi" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/reservation.png" />
+                           </image></ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label layoutX="166.0" layoutY="55.0" prefHeight="46.0" prefWidth="208.0" text="Creer Votre Cv" textFill="#e1e1e1">
+                     <font>
+                        <Font name="Bernard MT Condensed" size="36.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="DExp" layoutX="76.0" layoutY="200.0" prefHeight="27.0" prefWidth="180.0" promptText="Duree de l'experience" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
+                  <TextField fx:id="txt_certif" layoutX="72.0" layoutY="241.0" prefHeight="35.0" prefWidth="378.0" promptText="Certification" style="-fx-background-color: #FFFFFF;" />
+                  <Button fx:id="btn_ajouter" layoutX="202.0" layoutY="412.0" mnemonicParsing="false" onAction="#Reserver" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #808080;" text="Ajouter" textFill="#1b1b1b">
+                     <font>
+                        <Font name="Times New Roman Bold" size="16.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="txt_desc" layoutX="72.0" layoutY="292.0" prefHeight="35.0" prefWidth="378.0" promptText="Description" style="-fx-background-color: #FFFFFF;" />
+                  <ComboBox fx:id="NExp" layoutX="270.0" layoutY="200.0" prefHeight="27.0" prefWidth="177.0" promptText="Niveau de l'experience" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
+                  <Spinner fx:id="sp_tarif" editable="true" layoutX="166.0" layoutY="345.0" prefHeight="25.0" prefWidth="91.0" />
+                  <Label layoutX="76.0" layoutY="349.0" text="Tarif par heure" textFill="WHITE" />
+                  <TextField fx:id="txt_prenom" layoutX="269.0" layoutY="150.0" prefHeight="35.0" prefWidth="180.0" promptText="Prenom" style="-fx-background-color: #FFFFFF;" />
+                  <TextField fx:id="txt_nom" layoutX="76.0" layoutY="150.0" prefHeight="35.0" prefWidth="180.0" promptText="Nom" style="-fx-background-color: #FFFFFF;" />
+               </children>
+            </Pane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

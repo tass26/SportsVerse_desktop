@@ -5,33 +5,69 @@
  */
 package com.sportsverse.entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author ASUS
  */
 public class Cv {
     private int id ;
+    private User coach;
     private int duree_experience;
-    private User u;
+    private List<Activite> activites = new ArrayList<>();
     private String certification;
     private String description;
     private String image;
-    private String level ;
+    private String level;
     private double tarif;
 
     public Cv() {
     }
 
-    public Cv(int id, int duree_experience, User u, String certification, String description, String image, String level, double tarif) {
-        this.id = id;
+    public Cv(int id, User coach, int duree_experience, List<Activite> activites, String certification, String description, String image, String level, double tarif) {
+        this.id = id;        
+        this.coach = coach;
         this.duree_experience = duree_experience;
-        this.u = u;
+        this.activites = activites;
         this.certification = certification;
         this.description = description;
         this.image = image;
         this.level = level;
         this.tarif = tarif;
     }
+    
+    public Cv(int id, User coach, int duree_experience, String certification, String description, String image, String level, double tarif) {
+        this.id = id;        
+        this.coach = coach;
+        this.duree_experience = duree_experience;
+        this.certification = certification;
+        this.description = description;
+        this.image = image;
+        this.level = level;
+        this.tarif = tarif;
+    }
+
+    public Cv( User coach, int duree_experience, String certification, String description, String image, String level, double tarif) {
+        this.coach = coach;
+        this.duree_experience = duree_experience;
+        this.certification = certification;
+        this.description = description;
+        this.image = image;
+        this.level = level;
+        this.tarif = tarif;
+    }
+    
+    public Cv(int duree_experience,String certification, String description, String image, String level, double tarif) {
+        this.duree_experience = duree_experience;
+        this.certification = certification;
+        this.description = description;
+        this.image = image;
+        this.level = level;
+        this.tarif = tarif;
+    }
+    
 
     public int getId() {
         return id;
@@ -41,8 +77,8 @@ public class Cv {
         return duree_experience;
     }
 
-    public User getU() {
-        return u;
+    public User getCoach() {
+        return coach;
     }
 
     public String getCertification() {
@@ -73,10 +109,22 @@ public class Cv {
         this.duree_experience = duree_experience;
     }
 
-    public void setU(User u) {
-        this.u = u;
+    public void setCoach(User coach) {
+        this.coach = coach;
+    }
+    
+    public List<Activite> getActivites() {
+        return activites;
     }
 
+    public void setActivites(List<Activite> activites) {
+        this.activites = activites;
+    }
+
+    public void addActivite(Activite activite) {
+        activites.add(activite);
+    }
+    
     public void setCertification(String certification) {
         this.certification = certification;
     }

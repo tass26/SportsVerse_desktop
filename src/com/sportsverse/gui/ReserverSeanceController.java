@@ -8,10 +8,10 @@ package com.sportsverse.gui;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Emplacement_choix;
 import com.sportsverse.entities.Seance;
-import com.sportsverse.service.EmplacementService;
-import com.sportsverse.service.Emplacement_choixService;
-import com.sportsverse.service.SeanceService;
-import com.sportsverse.service.UserService;
+import com.sportsverse.services.EmplacementService;
+import com.sportsverse.services.Emplacement_choixService;
+import com.sportsverse.services.SeanceService;
+import com.sportsverse.services.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -51,18 +51,11 @@ public class ReserverSeanceController implements Initializable {
     private Button ReserverSeance;
     @FXML
     private Button SuiviSeance;
-    @FXML
     private DatePicker DatePicker;
-    @FXML
     private ComboBox<String> CBDuree;
-    @FXML
     private ComboBox<String> CBEmplacemnt;
     @FXML
-    private Button btnAjoutEmplacement;
-    @FXML
     private TextField txt_mesage;
-    @FXML
-    private Button btn_reserver;
     EmplacementService ep = new EmplacementService();
     UserService u = new UserService();
     SeanceService ss = new SeanceService();
@@ -71,6 +64,7 @@ public class ReserverSeanceController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
+<<<<<<< HEAD
     private Button SuiviSeance1;
     @FXML
     private Label ControleDate;
@@ -80,6 +74,19 @@ public class ReserverSeanceController implements Initializable {
     private Label ControleDuree;
     @FXML
     private Label ControleMsg;
+=======
+    private ComboBox<?> DExp;
+    @FXML
+    private Button btn_ajouter;
+    @FXML
+    private TextField txt_mesage1;
+    @FXML
+    private ComboBox<?> NExp;
+    @FXML
+    private TextField txt_mesage2;
+    @FXML
+    private TextField txt_mesage21;
+>>>>>>> 730c99869f994bd797eb71d648f22941dd6e195f
     /**
      * Initializes the controller class.
      */
@@ -170,7 +177,6 @@ public class ReserverSeanceController implements Initializable {
         refresh();
     }
 
-    @FXML
     private void RedirAjoutEmplacement(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("AjouterEmplacement.fxml"));

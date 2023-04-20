@@ -13,32 +13,34 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
- * @author Achref
-
+ * @author Mohamed Ali
  */
-public class NewFXMain extends Application {
+public class InterfaceMain extends Application {
     
-    @Override
+     @Override
     public void start(Stage primaryStage) {
+  
+       Parent root; 
+      try{ 
+       
+        root=FXMLLoader.load(getClass().getResource("interface_inscription.fxml"));
+      // root=FXMLLoader.load(getClass().getResource("ListUser.fxml"));
+        Scene scene = new Scene(root);
+        
+        primaryStage.setTitle("Interface Inscription");
+        primaryStage.setScene(scene);
+        //primaryStage.setFullScreen(true);
 
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
-            //primaryStage.initStyle(StageStyle.UNDECORATED);
-            Scene scene = new Scene(root);
-            Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");
-            primaryStage.getIcons().add(image);
-            primaryStage.setTitle("Reserver Votre Seance");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        primaryStage.show();
+    }
+    catch(IOException e){System.out.print(e.getMessage());}
+    
+      
     }
 
     /**
