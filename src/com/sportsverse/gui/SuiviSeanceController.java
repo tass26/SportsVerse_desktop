@@ -78,6 +78,10 @@ public class SuiviSeanceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        refresh();
+        
+    } 
+    public void refresh(){
         NomCoach.setCellValueFactory(new PropertyValueFactory<Seance,String>("C"));
         Emplacement.setCellValueFactory(new PropertyValueFactory<Seance,String>("E"));
         Date.setCellValueFactory(new PropertyValueFactory<Seance,Date>("Date"));
@@ -109,6 +113,8 @@ public class SuiviSeanceController implements Initializable {
             };
             return cell;
         };
+        
+        
         Accepter.setCellFactory(cellFactory);
         Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory2=(TableColumn<Seance, String> param)->{
             final TableCell<Seance,String> cell=new TableCell<Seance,String>(){
@@ -139,8 +145,7 @@ public class SuiviSeanceController implements Initializable {
         Refuser.setCellFactory(cellFactory2);
         SeanceTable.setItems(SeanceList);
         System.out.println(SeanceList);
-        
-    }    
+    }
 
     @FXML
     private void RedrRes(ActionEvent event) {
