@@ -80,15 +80,12 @@ public class ReserverSeanceController implements Initializable {
     private Label ControleDuree;
     @FXML
     private Label ControleMsg;
+    int CoachId;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        refresh();
-       
-    }    
-    public void refresh(){
          CBDuree.getItems().addAll(Duree);
         List<Emplacement> emplacements = ep.afficher();
         String[] emplacementChoix = new String[emplacements.size()];
@@ -96,7 +93,8 @@ public class ReserverSeanceController implements Initializable {
             emplacementChoix[i] = emplacements.get(i).toString();
         }
         CBEmplacemnt.getItems().addAll(emplacementChoix);
-    }
+       
+    }    
 
 
     @FXML
@@ -164,10 +162,9 @@ public class ReserverSeanceController implements Initializable {
         String Emp = CBEmplacemnt.getValue();
         String Etat = "en attente";
         String msg = txt_mesage.getText();
-        String adresse = u.read(2).getAdresse();
-        Seance s = new Seance(u.read(3),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
+        String adresse = u.read(2).getEmail();
+        Seance s = new Seance(u.read(CoachId),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
         ss.ajouter(s);
-        refresh();
     }
 
     @FXML

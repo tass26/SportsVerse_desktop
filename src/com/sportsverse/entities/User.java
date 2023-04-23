@@ -49,6 +49,19 @@ public class User {
         this.password = password;
     }
 
+    public User(int id, int is_verified, int is_banned, String nom, String prenom, String adresse, String num_tel, String email, String roles, String password) {
+        this.id = id;
+        this.is_verified = is_verified;
+        this.is_banned = is_banned;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.roles = roles;
+        this.password = password;
+    }
+
     public User(int is_verified, int is_banned, String nom, String prenom, String adresse, String num_tel, String email, String roles, String password) {
         this.is_verified = is_verified;
         this.is_banned = is_banned;

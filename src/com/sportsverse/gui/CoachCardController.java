@@ -50,8 +50,9 @@ public class CoachCardController implements Initializable {
     }    
     public void  setData(User u){
         CoachName.setText(u.getNom());
-        Cid=u.getId();
+        System.out.println(u.getNom());
         System.out.println(u.getId());
+        Cid=u.getId();
     }
 
     @FXML
@@ -61,6 +62,7 @@ public class CoachCardController implements Initializable {
         try {
             Parent root = loder.load();
             ReserverSeanceController rc = loder.getController();
+            rc.CoachId=Cid;
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

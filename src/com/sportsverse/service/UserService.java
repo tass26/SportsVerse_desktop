@@ -55,6 +55,33 @@ public class UserService {
         }    
         return null;
     }
+        public User getUserByAdress(String ad){
+        String sql = "SELECT is_verified, is_banned, nom, prenom, adresse, num_tel, email, password FROM User WHERE email = ?";
+
+        try{
+            PreparedStatement ste = cnx.prepareStatement(sql);
+            ste.setString(1, ad);
+
+            try (ResultSet result = ste.executeQuery()) {
+                if (result.next()) {
+                    return new User(
+                            result.getInt("is_verified"),
+                            result.getInt("is_banned"),
+                            result.getString("nom"),
+                            result.getString("prenom"),
+                            result.getString("adresse"),
+                            result.getString("num_tel"),
+                            result.getString("email"),
+                            result.getString("password"));
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }    
+        return null;
+    }
     public List<User> getCoachs() {
         List<User> users = new ArrayList<>();
         String sql="select * from user";
@@ -64,7 +91,7 @@ public class UserService {
             ResultSet rs = ste.executeQuery(sql);
             while(rs.next()){
                 if(rs.getString("roles").substring(2, 12).equals("ROLE_COACH")){
-                    User u = new User(
+                    User u = new User(rs.getInt("id"),
                             rs.getInt("is_verified"),
                             rs.getInt("is_banned"),
                             rs.getString("nom"),
