@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="407.0" prefWidth="672.0" style="-fx-background-color: #131E6C;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.sportsverse.gui.InterfaceCoachController">
+   <children>
+      <VBox layoutX="-1.0" layoutY="51.0" prefHeight="354.0" prefWidth="170.0" style="-fx-background-color: #E2DC2A;">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="170.0" text="modifier mot de passe" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="170.0" text="modifier mon compte" />
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="170.0" text="modifier mon compte" />
+         </children>
+      </VBox>
+      <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="529.0" layoutY="354.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@ressource/logout.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="578.0" layoutY="357.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="94.0" style="-fx-background-color: #131E6C;" text="Deconnecter" textFill="#cccc55" />
+      <HBox layoutY="1.0" prefHeight="52.0" prefWidth="672.0" />
+      <Label layoutX="259.0" layoutY="36.0" prefHeight="34.0" prefWidth="365.0" text="consultez votre profile Coach" textFill="#c5d743">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
