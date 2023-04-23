@@ -137,7 +137,8 @@ public class ReserverSeanceController implements Initializable {
         Seance s = new Seance(u.read(1),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
         ss.ajouter(s);
     }
-
+    
+    @FXML
     private void RedirAjoutEmplacement(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("AjouterEmplacement.fxml"));

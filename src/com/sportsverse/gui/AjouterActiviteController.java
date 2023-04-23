@@ -20,7 +20,7 @@ import javafx.scene.control.TextField;
  *
  * @author Achref
  */
-public class AjouterCvController implements Initializable {
+public class AjouterActiviteController implements Initializable {
 
     @FXML
     private Button Accueil;
@@ -37,32 +37,18 @@ public class AjouterCvController implements Initializable {
     @FXML
     private Button btn_ajouter;
     @FXML
-    private ComboBox<String> NExp;
-    private String[] niveau = {"beginner","intermidiate","pro"};
-    @FXML
-    private TextField txt_certif;
-    @FXML
     private TextField txt_desc;
-    @FXML
-    private Spinner<Integer> sp_tarif;
-    @FXML
-    private TextField txt_prenom;
     @FXML
     private TextField txt_nom;
     @FXML
-    private Spinner<Integer> sp_duree;
-    @FXML
-    private Button ListCoach;
-    @FXML
-    private ComboBox<?> LActivites;
-    
+    private TextField txt_type;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        NExp.getItems().addAll(niveau);
+        // TODO
     }    
 
     @FXML
@@ -91,16 +77,6 @@ public class AjouterCvController implements Initializable {
 
     @FXML
     private void Ajouter(ActionEvent event) {
-        int dur = sp_duree.getValue();
-        String certif = txt_certif.getText();
-        String niveau = NExp.getValue();
-        String desc = txt_desc.getText();
-        
-
-    }
-
-    @FXML
-    private void RedirCoach(ActionEvent event) {
     }
     
 }

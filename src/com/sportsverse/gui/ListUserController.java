@@ -6,7 +6,7 @@
 package com.sportsverse.gui;
 
 import com.sportsverse.entities.User;
-import com.sportsverse.service.UserService;
+import com.sportsverse.services.UserService;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;

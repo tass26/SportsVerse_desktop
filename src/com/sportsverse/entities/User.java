@@ -124,5 +124,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "id=" + id + ", is_verified=" + is_verified + ", is_banned=" + is_banned + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", num_tel=" + num_tel + ", email=" + email + ", password=" + password + '}';
+    }
   
 }

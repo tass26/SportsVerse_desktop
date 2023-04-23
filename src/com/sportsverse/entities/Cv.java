@@ -15,57 +15,58 @@ import java.util.List;
 public class Cv {
     private int id ;
     private User coach;
-    private int duree_experience;
-    private List<Activite> activites = new ArrayList<>();
     private String certification;
     private String description;
-    private String image;
-    private String level;
+    private List<Activite> activites = new ArrayList<>();
     private double tarif;
+    private String image;
+    private int duree_experience;
+    private String level;
 
     public Cv() {
     }
 
-    public Cv(int id, User coach, int duree_experience, List<Activite> activites, String certification, String description, String image, String level, double tarif) {
+    public Cv(int id, User coach, String certification, String description,double tarif, String image, int duree_experience, String level, List<Activite> activites ) {
         this.id = id;        
         this.coach = coach;
-        this.duree_experience = duree_experience;
-        this.activites = activites;
         this.certification = certification;
         this.description = description;
-        this.image = image;
-        this.level = level;
         this.tarif = tarif;
+        this.image = image;
+        this.duree_experience = duree_experience;
+        this.level = level;
+        this.activites = activites;
+
     }
     
-    public Cv(int id, User coach, int duree_experience, String certification, String description, String image, String level, double tarif) {
+    public Cv(int id, User coach, String certification, String description, double tarif, String image, int duree_experience, String level) {
         this.id = id;        
         this.coach = coach;
-        this.duree_experience = duree_experience;
         this.certification = certification;
         this.description = description;
-        this.image = image;
-        this.level = level;
         this.tarif = tarif;
+        this.image = image;
+        this.duree_experience = duree_experience;
+        this.level = level;
     }
 
-    public Cv( User coach, int duree_experience, String certification, String description, String image, String level, double tarif) {
+    public Cv( User coach, String certification, String description, double tarif, String image, int duree_experience, String level) {
         this.coach = coach;
-        this.duree_experience = duree_experience;
         this.certification = certification;
         this.description = description;
-        this.image = image;
-        this.level = level;
         this.tarif = tarif;
+        this.image = image;
+        this.duree_experience = duree_experience;
+        this.level = level;
     }
     
     public Cv(int duree_experience,String certification, String description, String image, String level, double tarif) {
-        this.duree_experience = duree_experience;
         this.certification = certification;
         this.description = description;
-        this.image = image;
-        this.level = level;
         this.tarif = tarif;
+        this.image = image;
+        this.duree_experience = duree_experience;
+        this.level = level;
     }
     
 
@@ -143,6 +144,16 @@ public class Cv {
 
     public void setTarif(double tarif) {
         this.tarif = tarif;
+    }
+
+    @Override
+    public String toString() {
+        return "Cv{" + "id=" + id + 
+            ", coach nom & prenom= " + coach.getNom() +" "+coach.getPrenom() 
+            + ", certification=" + certification + ", description=" + 
+            description + ", activites=" + activites + ", tarif=" + tarif 
+            +", image=" + image + ", duree_experience=" + duree_experience 
+            + ", level=" + level + "'}' --|####|-- ";
     }
     
     

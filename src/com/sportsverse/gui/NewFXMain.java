@@ -28,7 +28,7 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("AjouterCv.fxml"));
             //primaryStage.initStyle(StageStyle.UNDECORATED);
             Scene scene = new Scene(root);
             Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");

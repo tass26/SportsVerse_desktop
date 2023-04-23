@@ -51,7 +51,7 @@ public class ActiviteService implements NewInterface<Activite>{
     
     @Override
     public void ajouter(Activite activite) {
-        sql = "insert into cv(nom,description,type)"
+        sql = "insert into activite(nom,description,type)"
                 + " values(?,?,?)";
         PreparedStatement ste;
         try {
@@ -75,9 +75,11 @@ public class ActiviteService implements NewInterface<Activite>{
             ResultSet rs = ste.executeQuery(sql);
             while(rs.next()){
                 Activite a = new Activite(
-                    rs.getString(1),
+                    rs.getInt(1),
+                    rs.getString(2),
+
                     rs.getString(3),
-                    rs.getString(3));
+                    rs.getString(4));
                 activites.add(a);
             }
         } catch (SQLException ex) {
@@ -87,7 +89,7 @@ public class ActiviteService implements NewInterface<Activite>{
     }
     
     public List<Cv> getCvsForActivite(int activiteId) throws SQLException {
-        sql = "SELECT * FROM cv WHERE activite_id = ?";
+        sql = "SELECT * FROM cv_activite WHERE activite_id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, activiteId);
         ResultSet rs = ste.executeQuery();
@@ -103,18 +105,19 @@ public class ActiviteService implements NewInterface<Activite>{
             String image = rs.getString("image");
             String level = rs.getString("level");
             double tarif = rs.getDouble("tarif");
-            Cv cv = new Cv(id, coach, duree_experience,  new ArrayList<Activite>(), certification, description, image, level, tarif);
+            Cv cv = new Cv(id, coach, certification, description, tarif, image, duree_experience, level, new ArrayList<>());
             cvs.add(cv);
         }
         return cvs;
     }
     
     public void addCvToActivite(int cvId, Activite activite) throws SQLException {
-        sql = "INSERT INTO activite (cv_id, nom) VALUES (?, ?)";
+        sql = "INSERT INTO cv_activite(cv_id, activite_id) VALUES (?, ?)";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, cvId);
-        ste.setString(2, activite.getNom());
+        ste.setInt(2, activite.getId());
         ste.executeUpdate();
+        System.out.println("cv ajouté a activité avec success !");
     }
 
     @Override

@@ -82,5 +82,14 @@ public class Activite {
     public void setCvs(List<Cv> cvs) {
         this.cvs = cvs;
     }
+
+    @Override
+    public String toString() {
+        return "Activite {" + "id=" + this.id + ", nom=" 
+            + this.nom + ", description=" + description 
+            + ", type=" + type + ", cvs=" 
+            + this.cvs + " } --|####|-- ";
+    }
+    
     
 }
