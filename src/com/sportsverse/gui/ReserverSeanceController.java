@@ -28,6 +28,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -63,6 +64,17 @@ public class ReserverSeanceController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
+<<<<<<< HEAD
+    private Button SuiviSeance1;
+    @FXML
+    private Label ControleDate;
+    @FXML
+    private Label ControleEmp;
+    @FXML
+    private Label ControleDuree;
+    @FXML
+    private Label ControleMsg;
+=======
     private ComboBox<?> DExp;
     @FXML
     private Button btn_ajouter;
@@ -74,20 +86,24 @@ public class ReserverSeanceController implements Initializable {
     private TextField txt_mesage2;
     @FXML
     private TextField txt_mesage21;
+>>>>>>> 730c99869f994bd797eb71d648f22941dd6e195f
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        CBDuree.getItems().addAll(Duree);
+        refresh();
+       
+    }    
+    public void refresh(){
+         CBDuree.getItems().addAll(Duree);
         List<Emplacement> emplacements = ep.afficher();
         String[] emplacementChoix = new String[emplacements.size()];
         for (int i = 0; i < emplacements.size(); i++) {
             emplacementChoix[i] = emplacements.get(i).toString();
         }
         CBEmplacemnt.getItems().addAll(emplacementChoix);
-    }    
+    }
 
 
     @FXML
@@ -123,25 +139,62 @@ public class ReserverSeanceController implements Initializable {
 
     @FXML
     private void RedirSuivi(ActionEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Suiviseance.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 
     @FXML
     private void Reserver(ActionEvent event) {
+        if(DatePicker.getValue() == null){
+            ControleDate.setText("Required");
+        }
+        if(CBDuree.getValue() == null){
+            ControleDuree.setText("Required");
+        }
+        if(CBEmplacemnt.getValue() == null){
+            ControleEmp.setText("Required");
+        }
+        if(txt_mesage.getText() == null){
+            ControleMsg.setText("Required");
+        }
         LocalDate dateres = DatePicker.getValue();
         Date d = Date.valueOf(dateres);
         String dur = CBDuree.getValue();
         String Emp = CBEmplacemnt.getValue();
         String Etat = "en attente";
         String msg = txt_mesage.getText();
-        String adresse = u.read(1).getAdresse();
-        Seance s = new Seance(u.read(1),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
+        String adresse = u.read(2).getAdresse();
+        Seance s = new Seance(u.read(3),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
         ss.ajouter(s);
+        refresh();
     }
     
     @FXML
     private void RedirAjoutEmplacement(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("AjouterEmplacement.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void RedirClient(ActionEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

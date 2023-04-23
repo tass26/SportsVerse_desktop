@@ -136,4 +136,32 @@ public class UserService {
     }
     return prod;
     }
+    
+    public List<User> getCoachs() {
+        List<User> users = new ArrayList<>();
+        String sql="select * from user";
+        Statement ste;
+        try {
+            ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(sql);
+            while(rs.next()){
+                if(rs.getString("roles").substring(2, 12).equals("ROLE_COACH")){
+                    User u = new User(
+                            rs.getInt("is_verified"),
+                            rs.getInt("is_banned"),
+                            rs.getString("nom"),
+                            rs.getString("prenom"),
+                            rs.getString("adresse"),
+                            rs.getString("num_tel"),
+                            rs.getString("email"),
+                            rs.getString("roles"),
+                            rs.getString("password"));                
+                    users.add(u);}
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+        return users;
+    }
 }
