@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="167.0" prefWidth="185.0" style="-fx-background-color: #424242;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.SeanceCardController">
+   <children>
+      <ImageView fitHeight="79.0" fitWidth="72.0" layoutX="57.0" layoutY="14.0" onMouseClicked="#AfficherInfo" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/request.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="CoachName" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="86.0" prefHeight="18.0" prefWidth="71.0" text="Label" textFill="#b0bec5">
+         <font>
+            <Font name="Arabic Typesetting" size="26.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="44.0" fitWidth="48.0" layoutX="14.0" layoutY="111.0" onMouseClicked="#Refuser" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="44.0" fitWidth="48.0" layoutX="127.0" layoutY="111.0" onMouseClicked="#Accepter" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/checked.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

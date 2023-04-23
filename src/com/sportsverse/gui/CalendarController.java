@@ -38,6 +38,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 
 public class CalendarController implements Initializable {
 
@@ -161,8 +162,8 @@ private void drawCalendar() {
                 //On Text clicked
                 //System.out.println(text.getText());
                 Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setTitle("Alert Example");
-                alert.setHeaderText("Information");
+                alert.setTitle("Details de reservation");
+                alert.setHeaderText("Informations");
                 alert.setContentText("Le client est " + nomClient + " \nCette séance se déroule dans " + E.getAdresse() + "\nIl a laisser ce message : " + Message);
 
         // Show the alert and wait for user response
@@ -200,11 +201,25 @@ private void drawCalendar() {
         int year = dateFocus.getYear();
         int month = dateFocus.getMonth().getValue();
         for (Seance activity: seances) {
-            if ((activity.getDate().toLocalDate().getMonth().getValue()==month) && (activity.getDate().toLocalDate().getYear()==year)){
+            if ((activity.getDate().toLocalDate().getMonth().getValue()==month) && (activity.getDate().toLocalDate().getYear()==year) && (activity.getEtat().equals("Acceptee"))){
                 calendarActivities.add(activity);
                 
             }
         }
         return createCalendarMap(calendarActivities);
+    }
+
+    @FXML
+    private void backToAccueil(MouseEvent event) {
+                        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

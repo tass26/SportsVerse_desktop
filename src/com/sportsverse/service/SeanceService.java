@@ -106,7 +106,7 @@ public class SeanceService implements NewInterface<Seance>{
             ste.setInt(1, t.getC().getId());
             ste.setInt(2, t.getE().getId());
             ste.setDate(3, t.getDate());
-            ste.setString(4, "Acceptée");
+            ste.setString(4, "Acceptee");
             ste.setString(5, t.getDuree());
             ste.setString(6, t.getAdresse_client());
             ste.setString(7, t.getMessage());
@@ -125,7 +125,7 @@ public class SeanceService implements NewInterface<Seance>{
             ste.setInt(1, t.getC().getId());
             ste.setInt(2, t.getE().getId());
             ste.setDate(3, t.getDate());
-            ste.setString(4, "Refusée");
+            ste.setString(4, "Refusee");
             ste.setString(5, t.getDuree());
             ste.setString(6, t.getAdresse_client());
             ste.setString(7, t.getMessage());
