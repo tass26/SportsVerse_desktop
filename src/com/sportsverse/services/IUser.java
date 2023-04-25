@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package com.sportsverse.services;
-import com.sportsverse.entities.Reponse;
+import com.sportsverse.entities.User;
 import java.sql.SQLException;
 import java.util.List;
 /**
  *
  * @author ASUS
  */
-public interface IReponse<T> {
+public interface IUser<T> {
  List<T> afficheListeR() throws SQLException;
-    void ajouterR(T r, int id)throws SQLException;  
-    void modifierO(T o, int id)throws SQLException;
+    void ajouterR(T r)throws SQLException;  
+    void modifierO(T o,int id)throws SQLException;
 
 }

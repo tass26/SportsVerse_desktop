@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author Fayechi
  */
 public class MaConnection {
-   public final static  String url ="jdbc:mysql://localhost:3306/sportsvere";
+   public final static  String url ="jdbc:mysql://localhost:3306/sportsverses";
    public final static String user="root";
    public final static String pwd="";
     private Connection cnx;

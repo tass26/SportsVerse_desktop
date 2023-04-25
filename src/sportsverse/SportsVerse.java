@@ -28,17 +28,21 @@ public class SportsVerse {
          ReponseService rl=new ReponseService();
 
         Date d=new Date();
-        Reclamation r= new Reclamation(1,"retard","ttttt","en cours","dali");
-       // rs.ajouterR(r);
+        Reclamation r2= new Reclamation(1,"retardd","ttttt","en cours","dali");
+      
       // System.out.println(rs.afficheListeR());
-       Reclamation r1= new Reclamation(1,1,"retard","reeetttaard","en cours","dali");
+      // Reclamation r1= new Reclamation(1,1,"retard","reeetttaard","en cours","dali");
       // rs.modifierO(r1);
-     // rs.supprimer(1);
-        Reponse r4= new Reponse(2,"ttttt");
-        Reponse r5= new Reponse(1,2,"tbbbbbb");
+     
+      //  Reponse r4= new Reponse(2,"ttttt");
+       Reponse r6= new Reponse(1,26,"titou");
         //rl.modifierO(r5);
-       // rl.ajouterR(r4);
-       rl.supprimer(1);
+       // rl.ajouterR(r6);
+       rl.supprimer(41);
+          //   Reclamation r3= new Reclamation(1,r"","t","en cours","samira");
+              // rs.ajouterR(r3);
+//              rs.ajouterR(r2);
+     // rs.supprimer(2);
 
        
 

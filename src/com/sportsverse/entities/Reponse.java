@@ -11,7 +11,7 @@ package com.sportsverse.entities;
  */
 public class Reponse {
     private int id ;
-    private int id_reclamation ;
+    private int id_reclamation ; 
     private String description;
 
     public Reponse() {

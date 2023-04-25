@@ -6,6 +6,7 @@
 package com.sportsverse.entities;
 
 import java.util.Date;
+import javafx.scene.control.Button;
 
 /**
  *
@@ -13,12 +14,13 @@ import java.util.Date;
  */
 public class Reclamation {
     private int id ;
-    private int id_user ;
+    private int id_user ; 
     private String sujet;
     private String description;
     private String etat;
     private Date date ;
     private String nom_client;
+    
 
     public Reclamation() {
     }
@@ -30,6 +32,7 @@ public class Reclamation {
         this.etat = etat;
       //  this.date = date;
         this.nom_client = nom_client;
+        
     }
     
 
@@ -41,6 +44,9 @@ public class Reclamation {
         this.etat = etat;
         //this.date = date;
         this.nom_client = nom_client;
+        
+        
+        
     }
 
     public int getId() {
@@ -99,9 +105,12 @@ public class Reclamation {
         this.nom_client = nom_client;
     }
 
+
+    
+
     @Override
     public String toString() {
-        return "Reclamation{" + "id=" + id + ", id_user=" + id_user + ", sujet=" + sujet + ", description=" + description + ", etat=" + etat + ", date=" + date + ", nom_client=" + nom_client + '}';
+        return "Reclamation{" + "id=" + id + ", id_user=" + id_user + ", sujet=" + sujet + ", description=" + description + ", etat=" + etat +  ", nom_client=" + nom_client + '}';
     }
     
     

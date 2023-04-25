@@ -6,6 +6,7 @@
 package com.sportsverse.services;
 
 import com.sportsverse.entities.Reponse;
+import com.sportsverse.entities.User;
 import com.sportsverse.tools.MaConnection;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -47,16 +48,16 @@ Statement stm;
     }
 
     @Override
-    public void ajouterR(Reponse r) throws SQLException {
-        String req ="INSERT INTO `reponse`( `id_reclamation`, `description`) VALUES ('"+r.getid_reclamation()+"','"+r.getDescription()+"')";       stm = conx.createStatement();
+    public void ajouterR(Reponse r,int id) throws SQLException {
+        String req ="INSERT INTO `reponse`( `id_reclamation`, `description`) VALUES ('"+id+"','"+r.getDescription()+"')";       stm = conx.createStatement();
         stm.executeUpdate(req);
         System.out.println("Reponse ajoutée");
     }
 
     @Override
-    public void modifierO(Reponse o) throws SQLException {
+    public void modifierO(Reponse o,int id) throws SQLException {
          try {
-          String qry = "UPDATE reponse SET `id_reclamation`='" + o.getid_reclamation() + "', `description`='" + o.getDescription()  + "' WHERE id=" + o.getId() + ";";
+          String qry = "UPDATE reponse SET `description`='" + o.getDescription()  + "' WHERE id_reclamation=" + id + ";";
                stm = conx.createStatement();
         stm.executeUpdate(qry);
         System.out.println("Reponse modifiée");
@@ -75,6 +76,9 @@ try {
         } catch (SQLException ex) {
              System.out.println(ex.getMessage());
         }    }
+      
+      
+        }
    
     
-}
+
