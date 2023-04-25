@@ -212,7 +212,7 @@ private void drawCalendar() {
     @FXML
     private void backToAccueil(MouseEvent event) {
                         try {
-            Parent root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
             Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);

@@ -23,7 +23,7 @@
          <left>
             <VBox prefHeight="229.0" prefWidth="139.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
+                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#Accueil" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -92,20 +92,6 @@
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
-                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedrRes" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/reserve.png" />
-                           </image></ImageView>
-                     </graphic>
-                  </Button>
                   <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
@@ -120,7 +106,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="SuiviSeance1" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirCoach" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Espace Coach" textFill="#fcfcfb">
+                  <Button fx:id="SuiviSeance1" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirCoach" onMouseClicked="#RedirStat" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Stats" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -128,9 +114,9 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </opaqueInsets>
                      <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="26.0" fitWidth="27.0" onMouseClicked="#RedirStat" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/coach.png" />
+                              <Image url="@icons/stats.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -141,12 +127,12 @@
          <center>
             <Pane prefHeight="449.0" prefWidth="506.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="55.0" fitWidth="80.0" layoutX="260.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="55.0" fitWidth="80.0" layoutX="271.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/reservation.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="126.0" layoutY="59.0" prefHeight="50.0" prefWidth="345.0" text="Suivi Vos Seances" textFill="#e1e1e1">
+                  <Label layoutX="172.0" layoutY="55.0" prefHeight="50.0" prefWidth="255.0" text="Suivi Seances" textFill="#e1e1e1">
                      <font>
                         <Font name="Bauhaus 93" size="43.0" />
                      </font>

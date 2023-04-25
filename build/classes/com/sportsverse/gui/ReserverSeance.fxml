@@ -24,7 +24,7 @@
          <left>
             <VBox prefHeight="229.0" prefWidth="139.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirAccueil" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
+                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirAccueil" onMouseClicked="#Accueil" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -32,7 +32,7 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </opaqueInsets>
                      <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="18.0" fitWidth="18.0" onMouseClicked="#Accueil" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@icons/home.png" />
                            </image></ImageView>

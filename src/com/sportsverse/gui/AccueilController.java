@@ -8,7 +8,6 @@ package com.sportsverse.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +15,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
@@ -23,7 +24,7 @@ import javafx.stage.Stage;
  *
  * @author user
  */
-public class AccueilCoachController implements Initializable {
+public class AccueilController implements Initializable {
 
     @FXML
     private Button Accueil;
@@ -37,12 +38,9 @@ public class AccueilCoachController implements Initializable {
     private Button ReserverSeance;
     @FXML
     private Button SuiviSeance;
-    @FXML
-    private Button SuiviSeance1;
     private Stage stage;
     private Scene scene;
     private Parent root;
-
     /**
      * Initializes the controller class.
      */
@@ -52,9 +50,9 @@ public class AccueilCoachController implements Initializable {
     }    
 
     @FXML
-    private void RedrRes(ActionEvent event) {
-                try {
-            root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+    private void EspaceClient(MouseEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -63,12 +61,13 @@ public class AccueilCoachController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        
     }
 
     @FXML
-    private void RedrC(ActionEvent event) {
-                try {
-            root = FXMLLoader.load(getClass().getResource("Calendar.fxml"));
+    private void EspaceCoach(MouseEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("ListDemande.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -77,12 +76,13 @@ public class AccueilCoachController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+        
     }
 
     @FXML
-    private void RedrCoach(ActionEvent event) {
+    private void EspaceAdmin(MouseEvent event) {
                 try {
-            root = FXMLLoader.load(getClass().getResource("SuiviSeance.fxml"));
+            root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

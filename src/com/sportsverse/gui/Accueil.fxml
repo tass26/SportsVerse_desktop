@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="506.0" prefWidth="737.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.AccueilCoachController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.AccueilController">
     <stylesheets>
         <URL value="@listcoach.css" />
     </stylesheets>
    <children>
-      <BorderPane prefHeight="506.0" prefWidth="737.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
             <VBox prefHeight="229.0" prefWidth="139.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
@@ -90,7 +90,7 @@
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
-                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedrRes" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
+                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -104,7 +104,7 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedrC" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
+                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -118,35 +118,35 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="SuiviSeance1" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedrCoach" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="EspaceCoach" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/coach.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                </children>
             </VBox>
          </left>
          <center>
-            <Pane prefHeight="449.0" prefWidth="506.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
                <children>
-                  <ImageView fitHeight="55.0" fitWidth="80.0" layoutX="287.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="105.0" fitWidth="116.0" layoutX="56.0" layoutY="65.0" onMouseClicked="#EspaceClient" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/client.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="96.0" fitWidth="108.0" layoutX="304.0" layoutY="67.0" onMouseClicked="#EspaceCoach" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/coach.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="171.0" layoutY="59.0" prefHeight="50.0" prefWidth="287.0" text="liste des demandes" textFill="#e1e1e1">
+                  <ImageView fitHeight="99.0" fitWidth="117.0" layoutX="181.0" layoutY="228.0" onMouseClicked="#EspaceAdmin" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/unauthorized-person.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="199.0" layoutY="327.0" prefHeight="14.0" prefWidth="62.0" text="Admin" textFill="#fffefe">
                      <font>
-                        <Font name="Bauhaus 93" size="33.0" />
+                        <Font name="Times New Roman" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="321.0" layoutY="170.0" prefHeight="14.0" prefWidth="62.0" text="Coach" textFill="#fffefe">
+                     <font>
+                        <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Label>
                </children>

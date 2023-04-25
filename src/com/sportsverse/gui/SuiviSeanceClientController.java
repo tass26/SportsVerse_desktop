@@ -30,6 +30,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 /**
@@ -47,8 +48,6 @@ public class SuiviSeanceClientController implements Initializable {
     private Button Produit;
     @FXML
     private Button Panier;
-    @FXML
-    private Button ReserverSeance;
     @FXML
     private Button SuiviSeance;
     @FXML
@@ -153,13 +152,13 @@ public class SuiviSeanceClientController implements Initializable {
         SeanceTable.setItems(SeanceList);
         System.out.println(SeanceList);    }  
     public void refresh(){
-        
     }
 
+
     @FXML
-    private void RedrRes(ActionEvent event) {
+    private void RedirStat(MouseEvent event) {
                 try {
-            root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Stats.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -172,15 +171,20 @@ public class SuiviSeanceClientController implements Initializable {
 
     @FXML
     private void RedirCoach(ActionEvent event) {
+    }
+
+    @FXML
+    private void Accueil(MouseEvent event) {
                 try {
-            root = FXMLLoader.load(getClass().getResource("SuiviSeance.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());}
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

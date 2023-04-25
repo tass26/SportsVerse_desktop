@@ -18,9 +18,14 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -38,12 +43,15 @@ public class ListDemandeController implements Initializable {
     @FXML
     private Button Panier;
     @FXML
-    private Button ReserverSeance;
-    @FXML
     private Button SuiviSeance;
     @FXML
     private HBox DemandeList;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     SeanceService ss= new SeanceService();
+    @FXML
+    private Button SuiviSeance1;
     /**
      * Initializes the controller class.
      */
@@ -53,7 +61,7 @@ public class ListDemandeController implements Initializable {
         List<Seance> seances = new ArrayList<>();
         seances = ss.afficher();
         for(int i=0; i<seances.size(); i++){
-            if (seances.get(i).getEtat().equals("en attente") == false){
+            if (seances.get(i).getEtat().equals("en attente") == true){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("SeanceCard.fxml"));
             try {
@@ -67,6 +75,48 @@ public class ListDemandeController implements Initializable {
             }
             }
     }    
+    }
+
+    @FXML
+    private void Accueil(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void RedirDemandes(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("ListDemande.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void RedirSuivi(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Calendar.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

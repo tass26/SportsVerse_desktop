@@ -5,6 +5,7 @@
  */
 package com.sportsverse.gui;
 
+import com.sportsverse.apis.JavaMail;
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.Seance;
 import com.sportsverse.entities.User;
@@ -54,13 +55,30 @@ public class SeanceCardController implements Initializable {
 
     @FXML
     private void Refuser(MouseEvent event) {
+        String rep = "Le coach "+ us.read(seance.getC().getId()).getNom()+" a refusé votre Demande de coaching pour le "+seance.getDate();
         ss.Refuser(seance);
+        try
+        {
+          
+             JavaMail.sendMail(seance.getAdresse_client(),rep);
+        } catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
     }
 
     @FXML
     private void Accepter(MouseEvent event) {
-        ss.Accepter(seance);
+        String rep = "Le coach "+ us.read(seance.getC().getId()).getNom()+" a Accepter votre Demande de coaching pour le "+seance.getDate();
         
+        try
+        {
+            JavaMail.sendMail(seance.getAdresse_client(),rep);
+            ss.Accepter(seance);
+        } catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
     }
 
     @FXML

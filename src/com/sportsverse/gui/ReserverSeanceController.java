@@ -30,6 +30,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -185,6 +186,20 @@ public class ReserverSeanceController implements Initializable {
     private void RedirClient(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("Calendar.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void Accueil(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

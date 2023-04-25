@@ -17,13 +17,18 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -46,6 +51,9 @@ public class ListCoachController implements Initializable {
     private Button SuiviSeance;
     @FXML
     private HBox CoachList;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
     UserService us = new UserService();
     /**
      * Initializes the controller class.
@@ -84,5 +92,48 @@ public class ListCoachController implements Initializable {
             CoachList.getChildren().addAll(imageView, label, button);
         }*/
     }    
+
+    @FXML
+    private void Accueil(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
+    }
+
+    @FXML
+    private void RedirReserver(MouseEvent event) {
+        try {
+            root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void RedirSuivi(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Calendar.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

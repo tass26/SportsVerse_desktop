@@ -3,12 +3,16 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="675.0" prefWidth="879.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.sportsverse.gui.StatsController">
+<AnchorPane id="AnchorPane" prefHeight="716.0" prefWidth="919.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.StatsController">
    <children>
-      <LineChart fx:id="lineChart" layoutX="297.0" layoutY="14.0" prefHeight="364.0" prefWidth="556.0">
+      <LineChart fx:id="lineChart" layoutX="371.0" layoutY="14.0" prefHeight="339.0" prefWidth="534.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -16,5 +20,31 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
+      <PieChart fx:id="pieChart" layoutX="400.0" layoutY="350.0" prefHeight="365.0" prefWidth="519.0" />
+      <ImageView fitHeight="71.0" fitWidth="69.0" layoutX="14.0" layoutY="14.0" onMouseClicked="#backToAccueil" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/back.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="109.0" layoutX="262.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/down-arrow.png" />
+         </image>
+      </ImageView>
+      <Label layoutY="110.0" prefHeight="134.0" prefWidth="269.0" text="Evolution des Seances par mois">
+         <font>
+            <Font name="French Script MT" size="29.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="109.0" fitWidth="153.0" layoutX="379.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@icons/down-arrow.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="153.0" layoutY="427.0" prefHeight="134.0" prefWidth="218.0" text="Seances par Coach">
+         <font>
+            <Font name="French Script MT" size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

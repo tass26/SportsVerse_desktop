@@ -7,13 +7,26 @@ package com.sportsverse.gui;
 
 import com.sportsverse.entities.Seance;
 import com.sportsverse.service.SeanceService;
+import com.sportsverse.service.UserService;
+import java.io.IOException;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -25,6 +38,9 @@ public class StatsController implements Initializable {
     @FXML
     private LineChart lineChart;
     SeanceService ss= new SeanceService();
+    UserService us = new UserService();
+    @FXML
+    private PieChart pieChart;
     /**
      * Initializes the controller class.
      */
@@ -176,7 +192,45 @@ public class StatsController implements Initializable {
         }
         
         lineChart.getData().add(series);
-        
+        Map<String, Integer> coachs = new HashMap<>();
+        for (Seance activity: seances){
+            if (coachs.containsKey(us.read(activity.getC().getId()).getNom()) == false){
+                coachs.put(us.read(activity.getC().getId()).getNom(), 1);
+            }
+            else{
+                int currentValue  = coachs.get(us.read(activity.getC().getId()).getNom());
+                //System.out.println("currentValue = " + currentValue);
+                int updatedValue = currentValue + 1;
+                //System.out.println("updatedValue = " + updatedValue);
+                coachs.put(us.read(activity.getC().getId()).getNom(), updatedValue);
+            }
+        }
+        /*for (Map.Entry<String, Integer> entry : coachs.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            System.out.println("Name: " + key + ", nbres: " + value);
+        }*/
+        ObservableList<PieChart.Data> pieChartData=
+                FXCollections.observableArrayList(
+                );
+        for (Map.Entry<String, Integer> entry : coachs.entrySet()) {
+        pieChartData.addAll(new PieChart.Data(entry.getKey(),entry.getValue()));
+        }
+        pieChart.setData(pieChartData);
     }    
+
+    @FXML
+    private void backToAccueil(MouseEvent event) {
+                        try {
+            Parent root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
+            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
     
 }

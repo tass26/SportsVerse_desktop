@@ -22,7 +22,7 @@
          <left>
             <VBox prefHeight="229.0" prefWidth="139.0" style="-fx-background-color: #282828;" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
+                  <Button fx:id="Accueil" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#Accueil" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Accueil" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -91,7 +91,7 @@
                      <VBox.margin>
                         <Insets left="5.0" />
                      </VBox.margin></Label>
-                  <Button fx:id="ReserverSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reserver Seance" textFill="#fcfcfb">
+                  <Button fx:id="SuiviSeance1" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#RedirDemandes" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Demandes" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -101,11 +101,12 @@
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/reserve.png" />
-                           </image></ImageView>
+                              <Image url="@icons/request.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
+                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#RedirSuivi" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
                      <font>
                         <Font name="Times New Roman" size="13.0" />
                      </font>
@@ -135,7 +136,7 @@
                         <Font name="Edwardian Script ITC" size="36.0" />
                      </font>
                   </Label>
-                  <HBox fx:id="DemandeList" layoutX="11.0" layoutY="121.0" prefHeight="269.0" prefWidth="442.0" />
+                  <HBox fx:id="DemandeList" layoutX="11.0" layoutY="121.0" prefHeight="269.0" prefWidth="442.0" style="-fx-background-color: #1E1E1E;" />
                </children>
             </Pane>
          </center>
