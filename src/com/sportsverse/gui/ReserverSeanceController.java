@@ -176,7 +176,8 @@ public class ReserverSeanceController implements Initializable {
         ss.ajouter(s);
         refresh();
     }
-
+    
+    @FXML
     private void RedirAjoutEmplacement(ActionEvent event) {
         try {
             root = FXMLLoader.load(getClass().getResource("AjouterEmplacement.fxml"));

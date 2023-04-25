@@ -1,27 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/com/sportsverse/gui/CvFXMain.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>26</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/SuiviSeanceClientController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/ListCoachController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/NewFXMain.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/CoachCardController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/ReserverSeanceController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/SuiviSeanceController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/entities/User.java</file>
-=======
-            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/entities/Activite.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/AjouterCvController.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/NewFXMain.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/tests/CvTest.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/AjouterActiviteController.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/Home.fxml</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/CvService.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/HomeController.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/CvFXMain.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/entities/Activite.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/ListCoachController.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/ListCoach.fxml</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/ActiviteService.java</file>
-            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/entities/Cv.java</file>
-            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/CvService.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/AjouterActivite.fxml</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/Home.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/InterfaceMain.java</file>
+            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/service/UserService.java</file>
             <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/services/UserService.java</file>
-            <file>file:/E:/esprit/PiDev/SportsVerse_desktop/src/com/sportsverse/gui/ReserverSeance.fxml</file>
->>>>>>> 730c99869f994bd797eb71d648f22941dd6e195f
         </group>
     </open-files>
 </project-private>

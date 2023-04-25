@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Spinner?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -15,10 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="679.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.AjouterCvController">
-    <stylesheets>
-        <URL value="@reserverseance.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="com.sportsverse.gui.ListActiviteController">
     <children>
       <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -121,68 +116,29 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="ListCoach" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="221.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirCoach" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="List Coach" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/reservation.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="List_Cv" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="256.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirListCv" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="List Cv" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/reservation.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
                </children>
             </VBox>
          </left>
          <center>
-            <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
+            <Pane prefHeight="436.0" prefWidth="461.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="166.0" layoutY="55.0" prefHeight="46.0" prefWidth="208.0" text="Creer Votre Cv" textFill="#e1e1e1">
+                  <Label layoutX="96.0" layoutY="36.0" prefHeight="46.0" prefWidth="249.0" text="Liste des activites" textFill="#e1e1e1">
                      <font>
                         <Font name="Bernard MT Condensed" size="36.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txt_certif" layoutX="177.0" layoutY="183.0" prefHeight="35.0" prefWidth="266.0" promptText="Certification" style="-fx-background-color: #FFFFFF;" />
-                  <Button fx:id="btn_ajouter" layoutX="202.0" layoutY="412.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="25.0" prefWidth="137.0" style="-fx-background-color: #808080;" text="Ajouter" textFill="#1b1b1b">
+                  <Button fx:id="btn_ajouter" layoutX="142.0" layoutY="343.0" mnemonicParsing="false" onAction="#Ajouter" prefHeight="31.0" prefWidth="178.0" style="-fx-background-color: #808080;" text="Ajouter une activite" textFill="#1b1b1b">
                      <font>
                         <Font name="Times New Roman Bold" size="16.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="txt_desc" layoutX="177.0" layoutY="231.0" prefHeight="35.0" prefWidth="266.0" promptText="Description" style="-fx-background-color: #FFFFFF;" />
-                  <ComboBox fx:id="NExp" layoutX="265.0" layoutY="315.0" prefHeight="27.0" prefWidth="177.0" promptText="Niveau de l'experience" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
-                  <Spinner fx:id="sp_tarif" editable="true" layoutX="180.0" layoutY="279.0" prefHeight="25.0" prefWidth="72.0" />
-                  <TextField fx:id="txt_prenom" editable="false" layoutX="313.0" layoutY="135.0" prefHeight="35.0" prefWidth="130.0" promptText="Prenom" style="-fx-background-color: #FFFFFF;" text="Achref" />
-                  <TextField fx:id="txt_nom" editable="false" layoutX="119.0" layoutY="135.0" prefHeight="35.0" prefWidth="130.0" promptText="Nom" style="-fx-background-color: #FFFFFF;" text="Maarfi" />
-                  <Spinner fx:id="sp_duree" editable="true" layoutX="372.0" layoutY="279.0" prefHeight="25.0" prefWidth="72.0" />
-                  <Label layoutX="69.0" layoutY="142.0" text="Nom" textFill="WHITE" />
-                  <Label layoutX="265.0" layoutY="142.0" text="Prenom" textFill="WHITE" />
-                  <Label layoutX="69.0" layoutY="192.0" text="Certification" textFill="WHITE" />
-                  <Label layoutX="69.0" layoutY="240.0" text="Description" textFill="WHITE" />
-                  <Label layoutX="69.0" layoutY="283.0" text="Tarif par heure" textFill="WHITE" />
-                  <Label layoutX="69.0" layoutY="320.0" text="Niveau de l'experience" textFill="WHITE" />
-                  <Label layoutX="263.0" layoutY="283.0" text="Duree d'experience" textFill="WHITE" />
-                  <Label layoutX="69.0" layoutY="359.0" text="Les Activités" textFill="WHITE" />
-                  <ComboBox fx:id="LActivites" layoutX="265.0" layoutY="355.0" prefHeight="27.0" prefWidth="177.0" promptText="Choisir les activités" style="-fx-background-color: 7F7F7F;" stylesheets="@styling.css" />
+                  <TableView fx:id="table_activites" layoutX="70.0" layoutY="101.0" prefHeight="200.0" prefWidth="332.0">
+                    <columns>
+                      <TableColumn fx:id="t_nom" prefWidth="96.33334350585938" text="Nom" />
+                      <TableColumn fx:id="t_desc" prefWidth="140.0" text="Description" />
+                        <TableColumn fx:id="t_type" prefWidth="94.0" text="Type" />
+                    </columns>
+                  </TableView>
                </children>
             </Pane>
          </center>

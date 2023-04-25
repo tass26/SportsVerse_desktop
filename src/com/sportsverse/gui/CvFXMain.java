@@ -20,18 +20,15 @@ import javafx.stage.Stage;
 /**
  *
  * @author Achref
-
  */
-public class NewFXMain extends Application {
+public class CvFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
+        try{
+        Parent root = FXMLLoader.load(getClass().getResource("AjouterCv.fxml"));
 
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
-
-            //primaryStage.initStyle(StageStyle.UNDECORATED);
-            Scene scene = new Scene(root);
+        Scene scene = new Scene(root);
             Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");
             primaryStage.getIcons().add(image);
             primaryStage.setTitle("Reserver Votre Seance");

@@ -27,19 +27,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-<<<<<<< HEAD
-        //EmplacementService ps = new EmplacementService();
-        UserService us = new UserService();
-        /*SeanceService ss= new SeanceService();
-        Emplacement p = new Emplacement(2,"Tunis","Sidi Hssin","Maison","17 rue de bulgarie","jayara");
-        User u = us.read(1);
-        Date dateres=Date.valueOf("2023-04-04");
-        Seance s = new Seance(u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
-        ss.ajouter(s);
-        ss.afficher();*/
-=======
 
-        
         
 
         EmplacementService ps = new EmplacementService();
@@ -51,7 +39,7 @@ public class Main {
 //        Seance s = new Seance(u,p,dateres,"en attente", "1 heure", u.getAdresse(), "en se voit au prés de kiosque total");
 //        ss.ajouter(s);
 //        ss.afficher();
->>>>>>> 730c99869f994bd797eb71d648f22941dd6e195f
+
         //ps.ajouter(p);
        
         //ps.supprimer(p);

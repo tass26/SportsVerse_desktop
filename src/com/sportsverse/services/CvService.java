@@ -38,15 +38,16 @@ public class CvService implements NewInterface<Cv>{
         ResultSet rs = ste.executeQuery();
 
         if (rs.next()) {
-            int coach_id = rs.getInt("coach_id");
+            int coach_id = rs.getInt("user_id_id");
             int duree_experience = rs.getInt("duree_experience");
-            User coach = new User(coach_id);
             String certification = rs.getString("certification");
+
+            User coach = new User(coach_id);
             String description = rs.getString("description");
             String image = rs.getString("image");
             String level = rs.getString("level");
             double tarif = rs.getDouble("tarif");
-            Cv cv = new Cv(id, coach, duree_experience,  new ArrayList<>(), certification, description, image, level, tarif);
+            Cv cv = new Cv(id, coach, certification, description, tarif, image, duree_experience, level, new ArrayList<>());
             cv.setActivites(getActivitesForCv(id));
             return cv;
         }
@@ -55,19 +56,20 @@ public class CvService implements NewInterface<Cv>{
     
     @Override
     public void ajouter(Cv cv) {
-        sql = "insert into cv(coach_id,duree_experience,certification,"
-                + "description,image,level,tarif)"
+        sql = "insert into cv(user_id_id,certification,"
+                + "description,tarif,image,"
+                + "duree_experience,level)"
                 + " values(?,?,?,?,?,?,?)";
         PreparedStatement ste;
         try {
             ste = cnx.prepareStatement(sql);
             ste.setInt(1, cv.getCoach().getId());
-            ste.setInt(2, cv.getDuree_experience());
-            ste.setString(3, cv.getCertification());
-            ste.setString(4, cv.getDescription());
+            ste.setString(2, cv.getCertification());
+            ste.setString(3, cv.getDescription());
+            ste.setDouble(4, cv.getTarif());
             ste.setString(5, cv.getImage());
-            ste.setString(6, cv.getLevel());
-            ste.setDouble(7, cv.getTarif());
+            ste.setInt(6, cv.getDuree_experience());
+            ste.setString(7, cv.getLevel());
             ste.executeUpdate();
             System.out.println("cv ajoutee !");
         } catch (SQLException ex) {
@@ -84,14 +86,13 @@ public class CvService implements NewInterface<Cv>{
             ResultSet rs = ste.executeQuery(sql);
             while(rs.next()){
                 Cv c = new Cv(
-                    rs.getInt(1),
-                    us.read(rs.getInt("coach")),
-                    rs.getInt("duree_experience"),
+                    us.read(rs.getInt("user_id_id")),
                     rs.getString("certification"),
                     rs.getString("description"),
+                    rs.getInt("tarif"),
                     rs.getString("image"),
-                    rs.getString("level"),
-                    rs.getDouble("tarif"));
+                    rs.getInt("duree_experience"),
+                    rs.getString("level"));
                 cvs.add(c);
             }
         } catch (SQLException ex) {
@@ -101,10 +102,14 @@ public class CvService implements NewInterface<Cv>{
     }
     
     public List<Activite> getActivitesForCv(int cvId) throws SQLException {
-        sql = "SELECT * FROM activite WHERE cv_id = ?";
-        PreparedStatement stmt = cnx.prepareStatement(sql);
-        stmt.setInt(1, cvId);
-        ResultSet rs = stmt.executeQuery();
+        sql = "SELECT activite.* "
+                + "FROM activite "
+                + "INNER JOIN cv_activite ON activite.id = cv_activite.activite_id "
+                + "INNER JOIN cv ON cv.id = cv_activite.cv_id "
+                + "WHERE cv.id = ?;";
+        PreparedStatement ste = cnx.prepareStatement(sql);
+        ste.setInt(1, cvId);
+        ResultSet rs = ste.executeQuery();
 
         List<Activite> activites = new ArrayList<>();
         while (rs.next()) {
@@ -119,11 +124,12 @@ public class CvService implements NewInterface<Cv>{
     }
     
     public void addActiviteToCv(int cvId, Activite activite) throws SQLException {
-        sql = "INSERT INTO activite (cv_id, nom) VALUES (?, ?)";
+        sql = "INSERT INTO cv_activite(cv_id, activite_id) VALUES (?, ?)";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, cvId);
-        ste.setString(2, activite.getNom());
+        ste.setInt(2, activite.getId());
         ste.executeUpdate();
+        System.out.println("activite ajouté a cv avec success !");
     }
 
     @Override
@@ -152,7 +158,7 @@ public class CvService implements NewInterface<Cv>{
             ste.setString(6, cv.getLevel());
             ste.setDouble(7, cv.getTarif());
             ste.executeUpdate();
-            System.out.println("cv ajoutee !");
+            System.out.println("cv modifiee !");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }

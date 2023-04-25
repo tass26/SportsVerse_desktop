@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.sportsverse.service;
+package com.sportsverse.services;
 
 import com.sportsverse.entities.Emplacement;
 import com.sportsverse.entities.User;
@@ -32,7 +32,7 @@ public class UserService {
         cnx = MaConnection.getInstance().getCnx();
     }
         public User read(int id){
-        String sql = "SELECT is_verified, is_banned, nom, prenom, adresse, num_tel, email,role,password FROM User WHERE id = ?";
+        String sql = "SELECT is_verified, is_banned, nom, prenom, adresse, num_tel, email, password FROM User WHERE id = ?";
 
         try{
             PreparedStatement ste = cnx.prepareStatement(sql);
@@ -41,14 +41,13 @@ public class UserService {
             try (ResultSet result = ste.executeQuery()) {
                 if (result.next()) {
                     return new User(id,
-                            result.getBoolean("is_verified"),
-                            result.getString("is_banned"),
+                            result.getInt("is_verified"),
+                            result.getInt("is_banned"),
                             result.getString("nom"),
                             result.getString("prenom"),
                             result.getString("adresse"),
                             result.getString("num_tel"),
                             result.getString("email"),
-                            result.getString("role"),
                             result.getString("password"));
                 } else {
                     return null;
@@ -68,8 +67,7 @@ public class UserService {
             ps.setString(3, p.getAdresse());
             ps.setString(4, p.getNum_tel());
             ps.setString(5, p.getEmail());
-            ps.setString(6, p.getRole());
-            ps.setString(7, hashPassword(p.getPassword()));
+            ps.setString(6, hashPassword(p.getPassword()));
             
            
             ps.executeUpdate();
@@ -113,8 +111,8 @@ public class UserService {
         }
     }
      
-      public List<User> afficherUsers() {
-    List<User> prod = new ArrayList<User>();
+    public List<User> afficherUsers() {
+        List<User> prod = new ArrayList<User>();
         try {
         ste = cnx.createStatement();
         ResultSet result = ste.executeQuery(Select_User);
@@ -134,10 +132,11 @@ public class UserService {
         System.out.println(prod);
       
     } catch (SQLException ex) {
-         System.out.println(ex);   
+        System.out.println(ex);   
     }
-   return prod;
- }
+    return prod;
+    }
+    
     public List<User> getCoachs() {
         List<User> users = new ArrayList<>();
         String sql="select * from user";
