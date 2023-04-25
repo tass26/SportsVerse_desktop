@@ -77,7 +77,6 @@ public class ActiviteService implements NewInterface<Activite>{
                 Activite a = new Activite(
                     rs.getInt(1),
                     rs.getString(2),
-
                     rs.getString(3),
                     rs.getString(4));
                 activites.add(a);
@@ -89,7 +88,8 @@ public class ActiviteService implements NewInterface<Activite>{
     }
     
     public List<Cv> getCvsForActivite(int activiteId) throws SQLException {
-        sql = "SELECT * FROM cv_activite WHERE activite_id = ?";
+        sql = "SELECT * FROM cv "
+            + "INNER JOIN cv_activite ON activite_id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, activiteId);
         ResultSet rs = ste.executeQuery();

@@ -5,7 +5,15 @@
  */
 package com.sportsverse.gui;
 
+import com.sportsverse.entities.Activite;
+import com.sportsverse.entities.Cv;
+import com.sportsverse.entities.User;
+import com.sportsverse.services.ActiviteService;
+import com.sportsverse.services.CvService;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -55,7 +63,7 @@ public class AjouterCvController implements Initializable {
     private Button ListCoach;
     @FXML
     private ComboBox<?> LActivites;
-    
+    ActiviteService as = new ActiviteService();
 
     /**
      * Initializes the controller class.
@@ -63,6 +71,8 @@ public class AjouterCvController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         NExp.getItems().addAll(niveau);
+        List<Activite> activites = as.afficher();
+//        LActivites.getItems().addAll(activites);
     }    
 
     @FXML
@@ -95,6 +105,14 @@ public class AjouterCvController implements Initializable {
         String certif = txt_certif.getText();
         String niveau = NExp.getValue();
         String desc = txt_desc.getText();
+        int tarif = sp_tarif.getValue();
+        String level = NExp.getValue();
+        String nom = txt_nom.getText();
+        String prenom = txt_prenom.getText();
+        User u = new User(1, 0, nom, prenom, "tunis", "22114455", "email@gmail.com", "11442233");
+        Cv cv = new Cv(u, certif, desc, tarif, "img.png", dur, level);
+        CvService cs = new CvService();
+        cs.ajouter(cv);
         
 
     }

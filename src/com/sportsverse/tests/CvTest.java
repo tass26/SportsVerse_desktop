@@ -54,7 +54,7 @@ public class CvTest {
         a1.setId(5);
             System.out.println("---- ajouter activite ----");
 
-        as.ajouter(a);
+//        as.ajouter(a);
         System.out.println("---- afficher activite by ID ----");
 //
         try {
@@ -71,6 +71,13 @@ public class CvTest {
             as.addCvToActivite(2, a1);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        }
+            System.out.println("---- list activites of cv ----");
+
+        try {
+            System.out.println(cs.getActivitesForCv(2));
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());
         }
 
 

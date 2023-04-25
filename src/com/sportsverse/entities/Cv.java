@@ -60,7 +60,7 @@ public class Cv {
         this.level = level;
     }
     
-    public Cv(int duree_experience,String certification, String description, String image, String level, double tarif) {
+    public Cv(String certification, String description, double tarif, String image, int duree_experience, String level) {
         this.certification = certification;
         this.description = description;
         this.tarif = tarif;

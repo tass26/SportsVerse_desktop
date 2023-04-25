@@ -102,10 +102,14 @@ public class CvService implements NewInterface<Cv>{
     }
     
     public List<Activite> getActivitesForCv(int cvId) throws SQLException {
-        sql = "SELECT * FROM activite WHERE cv_id = ?";
-        PreparedStatement stmt = cnx.prepareStatement(sql);
-        stmt.setInt(1, cvId);
-        ResultSet rs = stmt.executeQuery();
+        sql = "SELECT activite.* "
+                + "FROM activite "
+                + "INNER JOIN cv_activite ON activite.id = cv_activite.activite_id "
+                + "INNER JOIN cv ON cv.id = cv_activite.cv_id "
+                + "WHERE cv.id = ?;";
+        PreparedStatement ste = cnx.prepareStatement(sql);
+        ste.setInt(1, cvId);
+        ResultSet rs = ste.executeQuery();
 
         List<Activite> activites = new ArrayList<>();
         while (rs.next()) {
@@ -120,11 +124,12 @@ public class CvService implements NewInterface<Cv>{
     }
     
     public void addActiviteToCv(int cvId, Activite activite) throws SQLException {
-        sql = "INSERT INTO activite (cv_id, nom) VALUES (?, ?)";
+        sql = "INSERT INTO cv_activite(cv_id, activite_id) VALUES (?, ?)";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, cvId);
-        ste.setString(2, activite.getNom());
+        ste.setInt(2, activite.getId());
         ste.executeUpdate();
+        System.out.println("activite ajouté a cv avec success !");
     }
 
     @Override

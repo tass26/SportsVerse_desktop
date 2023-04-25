@@ -87,8 +87,7 @@ public class Activite {
     public String toString() {
         return "Activite {" + "id=" + this.id + ", nom=" 
             + this.nom + ", description=" + description 
-            + ", type=" + type + ", cvs=" 
-            + this.cvs + " } --|####|-- ";
+            + ", type=" + type + " } --|####|-- ";
     }
     
     

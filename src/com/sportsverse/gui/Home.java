@@ -5,15 +5,11 @@
  */
 package com.sportsverse.gui;
 
-import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -21,22 +17,28 @@ import javafx.stage.Stage;
  *
  * @author Achref
  */
-public class CvFXMain extends Application {
+public class Home extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-        try{
-        Parent root = FXMLLoader.load(getClass().getResource("AjouterActivite.fxml"));
-
-        Scene scene = new Scene(root);
-            Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");
-            primaryStage.getIcons().add(image);
-            primaryStage.setTitle("Reserver Votre Seance");
-            primaryStage.setScene(scene);
-            primaryStage.show();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
+        Button btn = new Button();
+        btn.setText("Say 'Hello World'");
+        btn.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                System.out.println("Hello World!");
+            }
+        });
+        
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+        
+        Scene scene = new Scene(root, 300, 250);
+        
+        primaryStage.setTitle("Hello World!");
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 
     /**

@@ -6,26 +6,24 @@
 package com.sportsverse.gui;
 
 import com.sportsverse.entities.Activite;
-import com.sportsverse.entities.Cv;
-import com.sportsverse.entities.User;
 import com.sportsverse.services.ActiviteService;
-import com.sportsverse.services.CvService;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Spinner;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
  * @author Achref
  */
-public class AjouterActiviteController implements Initializable {
+public class ListActiviteController implements Initializable {
 
     @FXML
     private Button Accueil;
@@ -42,18 +40,31 @@ public class AjouterActiviteController implements Initializable {
     @FXML
     private Button btn_ajouter;
     @FXML
-    private TextField txt_desc;
+    private TableView<?> table_activites;
     @FXML
-    private TextField txt_nom;
+    private TableColumn<Activite, String> t_nom;
     @FXML
-    private TextField txt_type;
+    private TableColumn<Activite, String> t_desc;
+    @FXML
+    private TableColumn<Activite, String> t_type;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        t_nom.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNom()));
+        t_desc.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDescription()));
+        t_type.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getType()));
+        ActiviteService as = new ActiviteService();
+        
+        List<Activite> data;
+        
+        data = as.afficher();
+//        table_activites.getItems().setAll(data);
+        
+        
+        
     }    
 
     @FXML
@@ -82,12 +93,6 @@ public class AjouterActiviteController implements Initializable {
 
     @FXML
     private void Ajouter(ActionEvent event) {
-        String desc = txt_desc.getText();
-        String nom = txt_nom.getText();
-        String type = txt_type.getText();
-        Activite a = new Activite(nom, desc, type);
-        ActiviteService as = new ActiviteService();
-        as.ajouter(a);
     }
     
 }
