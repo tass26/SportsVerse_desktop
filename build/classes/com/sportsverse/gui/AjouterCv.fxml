@@ -136,6 +136,21 @@
                         </ImageView>
                      </graphic>
                   </Button>
+                  <Button fx:id="List_Cv" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="256.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirListCv" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="List Cv" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/reservation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </VBox>
          </left>
