@@ -85,7 +85,7 @@ public class SuiviSeanceClientController implements Initializable {
         Date.setCellValueFactory(new PropertyValueFactory<Seance,Date>("Date"));
         Duree.setCellValueFactory(new PropertyValueFactory<Seance,String>("Duree"));
         Etat.setCellValueFactory(new PropertyValueFactory<Seance,String>("Etat"));
-        Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory=(TableColumn<Seance, String> param)->{
+        /*Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory=(TableColumn<Seance, String> param)->{
             final TableCell<Seance,String> cell=new TableCell<Seance,String>(){
                 @Override
                 public void updateItem(String item,boolean empty){
@@ -110,9 +110,9 @@ public class SuiviSeanceClientController implements Initializable {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }
-                            /*Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                            Alert alert=new Alert(Alert.AlertType.INFORMATION);
                             alert.setContentText("You have clicked \n"+s.getMessage());
-                            alert.show();*/
+                            alert.show();
                         });
                         setGraphic(editButton);
                         setText(null);
@@ -121,7 +121,7 @@ public class SuiviSeanceClientController implements Initializable {
             };
             return cell;
         };
-        Modifier.setCellFactory(cellFactory);
+        Modifier.setCellFactory(cellFactory);*/
         Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory2=(TableColumn<Seance, String> param)->{
             final TableCell<Seance,String> cell=new TableCell<Seance,String>(){
                 @Override
@@ -177,6 +177,21 @@ public class SuiviSeanceClientController implements Initializable {
     private void Accueil(MouseEvent event) {
                 try {
             root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void RedirSuivi(MouseEvent event) {
+
+        try {
+            root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

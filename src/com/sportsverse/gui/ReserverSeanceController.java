@@ -163,7 +163,7 @@ public class ReserverSeanceController implements Initializable {
         String Emp = CBEmplacemnt.getValue();
         String Etat = "en attente";
         String msg = txt_mesage.getText();
-        String adresse = u.read(2).getEmail();
+        String adresse = u.read(6).getEmail();
         Seance s = new Seance(u.read(CoachId),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
         ss.ajouter(s);
     }

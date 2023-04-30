@@ -3,14 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/tools/MaConnection.java</file>
+            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/service/SeanceService.java</file>
             <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/ListDemandeController.java</file>
             <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/SuiviSeanceClientController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/StatsController.java</file>
+            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/SeanceCardController.java</file>
             <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/NewFXMain.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/DemandeModificationController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/AccueilController.java</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/SuiviSeance.fxml</file>
-            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/CalendarController.java</file>
+            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/gui/ReserverSeanceController.java</file>
+            <file>file:/C:/Users/user/Desktop/Projects/SportsVerseDesktop/SportsVerse_desktop/src/com/sportsverse/apis/JavaMail.java</file>
         </group>
     </open-files>
 </project-private>
