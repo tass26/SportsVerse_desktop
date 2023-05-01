@@ -68,7 +68,7 @@ public class ListUserController implements Initializable {
         xadresse.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAdresse()));
         xtel.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNum_tel()));
         xemail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
-        xrole.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRole()));
+        xrole.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRoles()));
         
         UserService crud = new UserService();
         // Populate the table with data

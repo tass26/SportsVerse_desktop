@@ -7,7 +7,7 @@ package com.sportsverse.gui;
 
 import com.sportsverse.entities.Seance;
 import com.sportsverse.entities.User;
-import com.sportsverse.service.SeanceService;
+import com.sportsverse.services.SeanceService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -164,7 +164,7 @@ public class SuiviSeanceController implements Initializable {
     @FXML
     private void RedrC(ActionEvent event) {
                 try {
-            root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Calendar.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);

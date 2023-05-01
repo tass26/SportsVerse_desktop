@@ -66,7 +66,47 @@ public class User {
         this.roles = roles;
         this.password = password;
     }
-    
+
+    public User(int id, int is_verified, int is_banned, String nom, String prenom, String adresse, String num_tel, String email, String roles, String password) {
+        this.id = id;
+        this.is_verified = is_verified;
+        this.is_banned = is_banned;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.roles = roles;
+        this.password = password;
+    }
+    public User(int id, String nom, String prenom, String adresse, String num_tel, String email, String password, String roles) {
+        this.id = id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public User(String nom, String prenom, String adresse, String num_tel, String email, String password, String roles) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+    }
+       public User(String nom, String prenom, String adresse, String num_tel, String email, String roles) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.adresse = adresse;
+        this.num_tel = num_tel;
+        this.email = email;
+        this.roles = roles;
+    } 
 
 
     public int getId() {
@@ -153,7 +193,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" + "id=" + id + ", is_verified=" + is_verified + ", is_banned=" + is_banned + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse + ", num_tel=" + num_tel + ", email=" + email + ", password=" + password + '}';
+        return  nom +" "+ prenom;
     }
    
 }

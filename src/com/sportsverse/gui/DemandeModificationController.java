@@ -6,7 +6,7 @@
 package com.sportsverse.gui;
 
 import com.sportsverse.entities.Emplacement;
-import com.sportsverse.service.EmplacementService;
+import com.sportsverse.services.EmplacementService;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;

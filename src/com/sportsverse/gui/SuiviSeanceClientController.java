@@ -6,7 +6,7 @@
 package com.sportsverse.gui;
 
 import com.sportsverse.entities.Seance;
-import com.sportsverse.service.SeanceService;
+import com.sportsverse.services.SeanceService;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -30,6 +30,7 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 
 /**
@@ -47,8 +48,6 @@ public class SuiviSeanceClientController implements Initializable {
     private Button Produit;
     @FXML
     private Button Panier;
-    @FXML
-    private Button ReserverSeance;
     @FXML
     private Button SuiviSeance;
     @FXML
@@ -86,7 +85,7 @@ public class SuiviSeanceClientController implements Initializable {
         Date.setCellValueFactory(new PropertyValueFactory<Seance,Date>("Date"));
         Duree.setCellValueFactory(new PropertyValueFactory<Seance,String>("Duree"));
         Etat.setCellValueFactory(new PropertyValueFactory<Seance,String>("Etat"));
-        Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory=(TableColumn<Seance, String> param)->{
+        /*Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory=(TableColumn<Seance, String> param)->{
             final TableCell<Seance,String> cell=new TableCell<Seance,String>(){
                 @Override
                 public void updateItem(String item,boolean empty){
@@ -111,9 +110,9 @@ public class SuiviSeanceClientController implements Initializable {
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
                 }
-                            /*Alert alert=new Alert(Alert.AlertType.INFORMATION);
+                            Alert alert=new Alert(Alert.AlertType.INFORMATION);
                             alert.setContentText("You have clicked \n"+s.getMessage());
-                            alert.show();*/
+                            alert.show();
                         });
                         setGraphic(editButton);
                         setText(null);
@@ -122,7 +121,7 @@ public class SuiviSeanceClientController implements Initializable {
             };
             return cell;
         };
-        Modifier.setCellFactory(cellFactory);
+        Modifier.setCellFactory(cellFactory);*/
         Callback<TableColumn<Seance,String>,TableCell<Seance,String>> cellFactory2=(TableColumn<Seance, String> param)->{
             final TableCell<Seance,String> cell=new TableCell<Seance,String>(){
                 @Override
@@ -153,13 +152,13 @@ public class SuiviSeanceClientController implements Initializable {
         SeanceTable.setItems(SeanceList);
         System.out.println(SeanceList);    }  
     public void refresh(){
-        
     }
 
+
     @FXML
-    private void RedrRes(ActionEvent event) {
+    private void RedirStat(MouseEvent event) {
                 try {
-            root = FXMLLoader.load(getClass().getResource("ReserverSeance.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Stats.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -172,15 +171,35 @@ public class SuiviSeanceClientController implements Initializable {
 
     @FXML
     private void RedirCoach(ActionEvent event) {
+    }
+
+    @FXML
+    private void Accueil(MouseEvent event) {
                 try {
-            root = FXMLLoader.load(getClass().getResource("SuiviSeance.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());}
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void RedirSuivi(MouseEvent event) {
+
+        try {
+            root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

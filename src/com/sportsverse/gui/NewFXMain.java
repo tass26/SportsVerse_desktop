@@ -19,22 +19,19 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Achref
-
+ * @author user
  */
 public class NewFXMain extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
-
+            Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
             //primaryStage.initStyle(StageStyle.UNDECORATED);
             Scene scene = new Scene(root);
             Image image = new Image("com/sportsverse/gui/icons/apple-touch-icon.png");
             primaryStage.getIcons().add(image);
-            primaryStage.setTitle("Reserver Votre Seance");
+            primaryStage.setTitle("SportsVerse");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
