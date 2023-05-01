@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author Achref
  */
-public class Home extends Application {
+public class HomeCoach extends Application {
     
     @Override
     public void start(Stage primaryStage) {

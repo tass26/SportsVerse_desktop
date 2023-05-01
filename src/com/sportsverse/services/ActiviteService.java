@@ -105,7 +105,7 @@ public class ActiviteService implements NewInterface<Activite>{
             String image = rs.getString("image");
             String level = rs.getString("level");
             double tarif = rs.getDouble("tarif");
-            Cv cv = new Cv(id, coach, certification, description, tarif, image, duree_experience, level, new ArrayList<>());
+            Cv cv = new Cv(id, coach, certification, description, tarif, image, duree_experience, new ArrayList<>());
             cvs.add(cv);
         }
         return cvs;

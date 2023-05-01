@@ -34,7 +34,7 @@ public class CvTest {
         Activite a = new Activite("fitness", "fitness description", "fitness type");
         ActiviteService as = new ActiviteService();
 //        Cv cv1 = new Cv(u,  "fitness coach certif", "finess coach desc",30, "img.jpg", 5, "pro");
-        Cv cv2 = new Cv(u1, "coach fitness certif", "coach fitness description ",30 ,"image.png",5 ,"pro");
+        Cv cv2 = new Cv(u1, "coach fitness certif", "coach fitness description ",30 ,"image.png",5);
 
         u1.setId(2);
 //        Cv cv = new Cv();

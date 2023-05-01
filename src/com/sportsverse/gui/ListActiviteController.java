@@ -40,7 +40,7 @@ public class ListActiviteController implements Initializable {
     @FXML
     private Button btn_ajouter;
     @FXML
-    private TableView<?> table_activites;
+    private TableView<Activite> table_activites;
     @FXML
     private TableColumn<Activite, String> t_nom;
     @FXML
@@ -61,7 +61,7 @@ public class ListActiviteController implements Initializable {
         List<Activite> data;
         
         data = as.afficher();
-//        table_activites.getItems().setAll(data);
+        table_activites.getItems().setAll(data);
         
         
         

@@ -21,12 +21,11 @@ public class Cv {
     private double tarif;
     private String image;
     private int duree_experience;
-    private String level;
 
     public Cv() {
     }
 
-    public Cv(int id, User coach, String certification, String description,double tarif, String image, int duree_experience, String level, List<Activite> activites ) {
+    public Cv(int id, User coach, String certification, String description,double tarif, String image, int duree_experience, List<Activite> activites ) {
         this.id = id;        
         this.coach = coach;
         this.certification = certification;
@@ -34,12 +33,11 @@ public class Cv {
         this.tarif = tarif;
         this.image = image;
         this.duree_experience = duree_experience;
-        this.level = level;
         this.activites = activites;
 
     }
     
-    public Cv(int id, User coach, String certification, String description, double tarif, String image, int duree_experience, String level) {
+    public Cv(int id, User coach, String certification, String description, double tarif, String image, int duree_experience) {
         this.id = id;        
         this.coach = coach;
         this.certification = certification;
@@ -47,26 +45,23 @@ public class Cv {
         this.tarif = tarif;
         this.image = image;
         this.duree_experience = duree_experience;
-        this.level = level;
     }
 
-    public Cv( User coach, String certification, String description, double tarif, String image, int duree_experience, String level) {
+    public Cv( User coach, String certification, String description, double tarif, String image, int duree_experience) {
         this.coach = coach;
         this.certification = certification;
         this.description = description;
         this.tarif = tarif;
         this.image = image;
         this.duree_experience = duree_experience;
-        this.level = level;
     }
     
-    public Cv(String certification, String description, double tarif, String image, int duree_experience, String level) {
+    public Cv(String certification, String description, double tarif, String image, int duree_experience) {
         this.certification = certification;
         this.description = description;
         this.tarif = tarif;
         this.image = image;
         this.duree_experience = duree_experience;
-        this.level = level;
     }
     
 
@@ -92,10 +87,6 @@ public class Cv {
 
     public String getImage() {
         return image;
-    }
-
-    public String getLevel() {
-        return level;
     }
 
     public double getTarif() {
@@ -138,10 +129,6 @@ public class Cv {
         this.image = image;
     }
 
-    public void setLevel(String level) {
-        this.level = level;
-    }
-
     public void setTarif(double tarif) {
         this.tarif = tarif;
     }
@@ -153,7 +140,7 @@ public class Cv {
             + ", certification=" + certification + ", description=" + 
             description + ", activites=" + activites + ", tarif=" + tarif 
             +", image=" + image + ", duree_experience=" + duree_experience 
-            + ", level=" + level + "'}' --|####|-- ";
+            + "'}' --|####|-- ";
     }
     
     

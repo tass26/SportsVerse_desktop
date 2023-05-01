@@ -12,10 +12,13 @@ import com.sportsverse.services.ActiviteService;
 import com.sportsverse.services.CvService;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -49,10 +52,9 @@ public class AjouterCvController implements Initializable {
     @FXML
     private Button SuiviSeance;
     @FXML
-    private Button btn_ajouter;
+    private Button ListCoach;
     @FXML
-    private ComboBox<String> NExp;
-    private String[] niveau = {"beginner","intermidiate","pro"};
+    private Button btn_ajouter;
     @FXML
     private TextField txt_certif;
     @FXML
@@ -65,10 +67,9 @@ public class AjouterCvController implements Initializable {
     private TextField txt_nom;
     @FXML
     private Spinner<Integer> sp_duree;
+    
     @FXML
-    private Button ListCoach;
-    @FXML
-    private ComboBox<?> LActivites;
+    private ComboBox<Activite> LActivites;
     ActiviteService as = new ActiviteService();
     @FXML
     private Button List_Cv;
@@ -80,9 +81,27 @@ public class AjouterCvController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        NExp.getItems().addAll(niveau);
         List<Activite> activites = as.afficher();
-//        LActivites.getItems().addAll(activites);
+        LActivites.getItems().addAll(activites);
+    }
+        public String controleDeSaisie(){
+        
+        String erreur="";
+     
+        if(txt_certif.getText().trim().isEmpty()){
+            erreur+="-nom vide\n";
+        }
+        if(txt_desc.getText().trim().isEmpty()){
+            erreur+="-descriptiona vide\n";
+        }
+        if(txt_nom.getText().trim().isEmpty()){
+            erreur+="-id_user vide\n";
+        }
+        if(txt_prenom.getText().trim().isEmpty()){
+            erreur+="-sujet vide\n";
+        }
+      
+        return erreur;
     }    
 
     @FXML
@@ -111,35 +130,39 @@ public class AjouterCvController implements Initializable {
 
     @FXML
     private void Ajouter(ActionEvent event) {
-        int dur = sp_duree.getValue();
+//        int dur = sp_duree.getValue();
+        int dur = 5;
         String certif = txt_certif.getText();
         String desc = txt_desc.getText();
         int tarif = sp_tarif.getValue();
-        String level = NExp.getValue();
         String nom = txt_nom.getText();
         String prenom = txt_prenom.getText();
-        User u = new User(1, 0, nom, prenom, "tunis", "22114455", "email@gmail.com", "11442233");
-        Cv cv = new Cv(u, certif, desc, tarif, "img.png", dur, level);
+        Activite activite = LActivites.getValue();
+        User u = new User(15, 0, nom, prenom, "tunis", "22114455", "email@gmail.com", "11442233");
+        Cv cv = new Cv(u, certif, desc, tarif, "img.png", dur);
         CvService cs = new CvService();
+            System.out.println(cs.afficher());
         cs.ajouter(cv);
-        FXMLLoader loader = new FXMLLoader(getClass()
-                .getResource("AffichageCv.fxml"));
         try {
-            Parent root = loader.load();
-            AffichageCvController ac = loader.getController();
-            ac.setSp_duree(dur);
-            ac.setTxt_certif(certif);
-            ac.setSp_tarif(tarif);
-            ac.setNExp(level);
-            ac.setTxt_nom(nom);
-            ac.setTxt_prenom(prenom);
-            ac.setList_cv(as.afficher().toString());
-            txt_nom.getScene().setRoot(root);
-        } catch (IOException ex) {
+            cs.addActiviteToCv(cv, activite);
+        } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
-
+//        FXMLLoader loader = new FXMLLoader(getClass()
+//                .getResource("AffichageCv.fxml"));
+//        try {
+//            Parent root = loader.load();
+//            AffichageCvController ac = loader.getController();
+//            ac.setSp_duree(dur);
+//            ac.setTxt_certif(certif);
+//            ac.setSp_tarif(tarif);
+//            ac.setTxt_nom(nom);
+//            ac.setTxt_prenom(prenom);
+//            ac.setList_cv(cs.afficher().toString());
+//            txt_nom.getScene().setRoot(root);
+//        } catch (IOException ex) {
+//            System.out.println(ex.getMessage());
+//        }
     }
 
     @FXML

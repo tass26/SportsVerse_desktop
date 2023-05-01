@@ -5,7 +5,10 @@
  */
 package com.sportsverse.gui;
 
+import com.sportsverse.entities.Cv;
+import com.sportsverse.services.CvService;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,22 +40,14 @@ public class AffichageCvController implements Initializable {
     private Button SuiviSeance;
     @FXML
     private Button ListCoach;
-    @FXML
     private TextField txt_certif;
-    @FXML
     private TextField txt_desc;
     private ComboBox<?> NExp;
-    @FXML
     private Spinner<?> sp_tarif;
-    @FXML
     private TextField txt_prenom;
-    @FXML
     private TextField txt_nom;
-    @FXML
     private Spinner<?> sp_duree;
     private ComboBox<?> LActivites;
-    @FXML
-    private TextField txt_prenom1;
     @FXML
     private TextArea list_cv;
 
@@ -128,13 +123,14 @@ public class AffichageCvController implements Initializable {
     public void setLActivites(ComboBox<?> LActivites) {
         this.LActivites = LActivites;
     }
-
+    CvService cs = new CvService();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        List<Cv> cvs = cs.afficher();
+//        list_cv
     }    
 
     @FXML

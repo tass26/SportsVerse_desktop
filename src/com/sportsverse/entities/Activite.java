@@ -85,9 +85,7 @@ public class Activite {
 
     @Override
     public String toString() {
-        return "Activite {" + "id=" + this.id + ", nom=" 
-            + this.nom + ", description=" + description 
-            + ", type=" + type + " } --|####|-- ";
+        return this.nom ;
     }
     
     
