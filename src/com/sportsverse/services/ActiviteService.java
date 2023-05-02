@@ -30,7 +30,7 @@ public class ActiviteService implements NewInterface<Activite>{
         cnx = MaConnection.getInstance().getCnx();
     }
     
-    public Activite getActiviteById(int id) throws SQLException {
+   /* public Activite getActiviteById(int id) throws SQLException {
         sql = "SELECT * FROM activite WHERE id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, id);
@@ -47,7 +47,7 @@ public class ActiviteService implements NewInterface<Activite>{
             return activite;
         }
         return null;
-    }
+    }*/
     
     @Override
     public void ajouter(Activite activite) {
@@ -87,7 +87,7 @@ public class ActiviteService implements NewInterface<Activite>{
         return activites;
     }
     
-    public List<Cv> getCvsForActivite(int activiteId) throws SQLException {
+   /* public List<Cv> getCvsForActivite(int activiteId) throws SQLException {
         sql = "SELECT * FROM cv "
             + "INNER JOIN cv_activite ON activite_id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
@@ -109,7 +109,7 @@ public class ActiviteService implements NewInterface<Activite>{
             cvs.add(cv);
         }
         return cvs;
-    }
+    }*/
     
     public void addCvToActivite(int cvId, Activite activite) throws SQLException {
         sql = "INSERT INTO cv_activite(cv_id, activite_id) VALUES (?, ?)";

@@ -49,7 +49,7 @@ public class CoachCardController implements Initializable {
         // TODO
     }    
     public void  setData(User u){
-        CoachName.setText(u.getNom());
+        CoachName.setText(u.getPrenom());
         System.out.println(u.getNom());
         System.out.println(u.getId());
         Cid=u.getId();

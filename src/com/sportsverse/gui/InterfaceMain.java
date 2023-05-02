@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Mohamed Ali
+ * @author Sarah
  */
 public class InterfaceMain extends Application {
     
@@ -28,8 +28,9 @@ public class InterfaceMain extends Application {
        Parent root; 
       try{ 
        
-        root=FXMLLoader.load(getClass().getResource("interface_inscription.fxml"));
-      // root=FXMLLoader.load(getClass().getResource("ListUser.fxml"));
+  //  root=FXMLLoader.load(getClass().getResource("interface_inscription.fxml"));
+    root=FXMLLoader.load(getClass().getResource("SignIn.fxml"));
+    
         Scene scene = new Scene(root);
         
         primaryStage.setTitle("Interface Inscription");

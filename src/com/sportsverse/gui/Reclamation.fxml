@@ -35,7 +35,6 @@
                   </Button>
                   <TextField fx:id="idnom" layoutX="81.0" layoutY="247.0" prefHeight="35.0" prefWidth="378.0" promptText="votre nom" style="-fx-background-color: #FFFFFF;" />
                   <TextField fx:id="idsujet" layoutX="81.0" layoutY="145.0" prefHeight="35.0" prefWidth="378.0" promptText="sujet de la reclamation" style="-fx-background-color: #FFFFFF;" />
-                  <TextField fx:id="idetat" layoutX="81.0" layoutY="299.0" prefHeight="35.0" prefWidth="378.0" promptText="etat" style="-fx-background-color: #FFFFFF;" />
                   <TextField fx:id="iduser" layoutX="81.0" layoutY="98.0" prefHeight="35.0" prefWidth="378.0" promptText="id_user" style="-fx-background-color: #FFFFFF;" />
                </children>
             </Pane>

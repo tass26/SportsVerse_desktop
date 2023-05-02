@@ -18,6 +18,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -30,32 +31,27 @@ import javafx.scene.control.TextField;
  */
 public class ListUserController implements Initializable {
 
-    @FXML
     private TableView<User> xtable;
-    @FXML
     private TableColumn<User, Integer> xid;
-    @FXML
     private TableColumn <User, String>xnom;
-    @FXML
     private TableColumn<User, String> xprenom;
-    @FXML
     private TableColumn <User, String> xadresse;
-    @FXML
     private TableColumn<User, String> xtel;
-    @FXML
     private TableColumn<User, String> xemail;
-    @FXML
     private TableColumn<User, String>xrole;
-    @FXML
     private TextField Mnom;
-    @FXML
     private TextField Mprenom;
-    @FXML
     private TextField Madresse;
-    @FXML
     private TextField Mtel;
-    @FXML
     private TextField Memail;
+    @FXML
+    private TextField filterField;
+    @FXML
+    private Button gotoEchangeBtn;
+    @FXML
+    private Button gotoEchangeBtn1;
+    @FXML
+    private Button gotoEchangeBtn111;
 
     /**
      * Initializes the controller class.
@@ -68,7 +64,7 @@ public class ListUserController implements Initializable {
         xadresse.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getAdresse()));
         xtel.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNum_tel()));
         xemail.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEmail()));
-        xrole.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRoles()));
+        xrole.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getRole()));
         
         UserService crud = new UserService();
         // Populate the table with data
@@ -123,6 +119,10 @@ public class ListUserController implements Initializable {
            
       
             crud.modifierUser(id,nom,prenom,adresse,tel,email);
+    }
+
+    @FXML
+    private void logout(ActionEvent event) {
     }
     
 }

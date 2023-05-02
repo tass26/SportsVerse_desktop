@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface IReponse<T> {
  List<T> afficheListeR() throws SQLException;
-    void ajouterR(T r)throws SQLException;  
-    void modifierO(T o)throws SQLException;
+    void ajouterR(T r, int id)throws SQLException;  
+    void modifierO(T o, int id)throws SQLException;
 
 }

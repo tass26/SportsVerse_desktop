@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.ListProduitController">
+    <stylesheets>
+        <URL value="@listcoach.css" />
+    </stylesheets>
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <Pane prefHeight="446.0" prefWidth="461.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="55.0" fitWidth="80.0" layoutX="196.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/strongman.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="276.0" layoutY="23.0" prefHeight="50.0" prefWidth="239.0" text="Liste produits" textFill="#e1e1e1">
+                     <font>
+                        <Font name="Edwardian Script ITC" size="36.0" />
+                     </font>
+                  </Label>
+                  <HBox fx:id="ProduitList" layoutX="14.0" layoutY="81.0" prefHeight="269.0" prefWidth="469.0">
+                     <children>
+                        <AnchorPane fx:id="PaneProduit" prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <TableView prefHeight="273.0" prefWidth="434.0" fx:id="xtable">
+                                 <columns>
+                                    <TableColumn prefWidth="63.199951171875" text="Nom" fx:id="xnom" />
+                                    <TableColumn prefWidth="77.60003662109375" text="Categorie" fx:id="xcategorie" />
+                                    <TableColumn prefWidth="65.5999755859375" text="Quantite" fx:id="xquantite" />
+                                    <TableColumn prefWidth="97.5999755859375" text="Prix" fx:id="xprix" />
+                                    <TableColumn prefWidth="126.4000244140625" text="Image" fx:id="ximage" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="Mnom" layoutX="518.0" layoutY="139.0" />
+                  <TextField fx:id="Mcategorie" layoutX="518.0" layoutY="176.0" />
+                  <TextField fx:id="Mquantite" layoutX="518.0" layoutY="215.0" />
+                  <TextField fx:id="Mprix" layoutX="518.0" layoutY="252.0" />
+                  <TextField fx:id="Mimage" layoutX="518.0" layoutY="288.0" prefHeight="70.0" prefWidth="149.0" />
+                  <Label layoutX="469.0" layoutY="143.0" text="Nom_P" textFill="WHITE" />
+                  <Label layoutX="462.0" layoutY="180.0" text="Categorie" textFill="WHITE" />
+                  <Label layoutX="471.0" layoutY="219.0" text="Quantité" textFill="WHITE" />
+                  <Label layoutX="484.0" layoutY="256.0" text="Prix" textFill="WHITE" />
+                  <Label layoutX="472.0" layoutY="306.0" text="Image" textFill="WHITE" />
+                  <Button layoutX="484.0" layoutY="370.0" mnemonicParsing="false" onAction="#modifier_produit" style="-fx-background-color: #3c94d1;" text="modifier" textFill="#f2f2f2" />
+                  <Button layoutX="17.0" layoutY="352.0" mnemonicParsing="false" onAction="#ToPdf" prefHeight="37.0" prefWidth="48.0" style="-fx-background-color: #3A98B9;">
+                                             <padding>
+                                                <Insets left="10.0" />
+                                             </padding>
+                                          </Button>
+   
+                  <TextField fx:id="filtrerField" layoutX="528.0" layoutY="23.0" onKeyPressed="#filtrer" onKeyReleased="#filtrer" onKeyTyped="#filtrer" />
+                  <ImageView fitHeight="29.0" fitWidth="22.0" layoutX="483.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Assets/search.png" />
+                     </image>
+                    
+                  </ImageView>
+                                          <ImageView fitHeight="35.0" fitWidth="30.0" layoutX="23.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@Assets/download-pdf.png" />
+                                             </image>
+                                          </ImageView>
+                  <ComboBox fx:id="StatV" layoutX="536.0" layoutY="62.0" onAction="#StatV" prefHeight="37.0" prefWidth="113.0" promptText="Stat" />
+                  <ImageView fitHeight="48.0" fitWidth="41.0" layoutX="14.0" layoutY="5.0" onMouseClicked="#backToAccueil" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@icons/back.png" />
+                     </image>
+                  </ImageView>
+                 
+                </children>
+             
+            </Pane>
+         </center>
+      </BorderPane>
+    
+      <Button layoutX="719.0" layoutY="373.0" mnemonicParsing="false" onAction="#supprimer" style="-fx-background-color: #3c94d1;" text="supprimer" textFill="#f2f2f2" />
+    
+   </children>
+   
+</AnchorPane>

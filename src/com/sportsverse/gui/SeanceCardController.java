@@ -49,7 +49,7 @@ public class SeanceCardController implements Initializable {
         // TODO
     }    
         public void  setData(Seance s){
-        CoachName.setText(us.getUserByAdress(s.getAdresse_client()).getNom());
+        CoachName.setText(us.getUserByAdress(s.getAdresse_client()).getPrenom());
         Sid=s.getId();
     }
 
@@ -57,6 +57,7 @@ public class SeanceCardController implements Initializable {
     private void Refuser(MouseEvent event) {
         String rep = "Le coach "+ us.read(seance.getC().getId()).getNom()+" a refusé votre Demande de coaching pour le "+seance.getDate();
         ss.Refuser(seance);
+        System.out.println(seance);
         try
         {
           
@@ -70,11 +71,11 @@ public class SeanceCardController implements Initializable {
     @FXML
     private void Accepter(MouseEvent event) {
         String rep = "Le coach "+ us.read(seance.getC().getId()).getNom()+" a Accepter votre Demande de coaching pour le "+seance.getDate();
-        
+        ss.Accepter(seance);
         try
         {
             JavaMail.sendMail(seance.getAdresse_client(),rep);
-            ss.Accepter(seance);
+            
         } catch (Exception ex)
         {
             System.out.println(ex);

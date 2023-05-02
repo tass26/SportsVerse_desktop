@@ -134,21 +134,20 @@
                         <Image url="@icons/coach.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="99.0" fitWidth="117.0" layoutX="181.0" layoutY="228.0" onMouseClicked="#EspaceAdmin" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@icons/unauthorized-person.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="199.0" layoutY="327.0" prefHeight="14.0" prefWidth="62.0" text="Admin" textFill="#fffefe">
-                     <font>
-                        <Font name="Times New Roman" size="20.0" />
-                     </font>
-                  </Label>
                   <Label layoutX="321.0" layoutY="170.0" prefHeight="14.0" prefWidth="62.0" text="Coach" textFill="#fffefe">
                      <font>
                         <Font name="Times New Roman" size="20.0" />
                      </font>
                   </Label>
+                  <Button layoutX="297.0" layoutY="350.0" mnemonicParsing="false" onAction="#logout" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #1E1E1E;" text="Deconnecter" textFill="#cccc55">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ressource/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                </children>
             </Pane>
          </center>

@@ -68,8 +68,6 @@ public class SuiviSeanceClientController implements Initializable {
     private Scene scene;
     private Parent root;
     @FXML
-    private TableColumn<Seance, String> Modifier;
-    @FXML
     private Button SuiviSeance1;
     @FXML
     private TableColumn<Seance, String> Annuler;

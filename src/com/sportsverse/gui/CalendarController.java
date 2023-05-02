@@ -79,6 +79,7 @@ public class CalendarController implements Initializable {
     }
 
 private void drawCalendar() {
+    
     year.setText(String.valueOf(dateFocus.getYear()));
     month.setText(String.valueOf(dateFocus.getMonth()));
 
@@ -196,7 +197,14 @@ private void drawCalendar() {
     }
 
     private Map<Integer, List<Seance>> getCalendarActivitiesMonth(ZonedDateTime dateFocus) {
-        List<Seance> seances = ss.afficher();
+        List<Seance> seances = new ArrayList<>();
+        System.out.println(UserService.getCurrentUser().getRole().substring(2, 12).equals("ROLE_COACH"));
+        if(UserService.getCurrentUser().getRole().substring(2, 12).equals("ROLE_COACH")){
+            seances=ss.getSeancesCoach(UserService.getCurrentUser().getId());
+        }
+        else{
+            seances=ss.getSeancesClient(UserService.getCurrentUser().getEmail());
+        }
         List<Seance> calendarActivities = new ArrayList<>();
         int year = dateFocus.getYear();
         int month = dateFocus.getMonth().getValue();
@@ -206,6 +214,7 @@ private void drawCalendar() {
                 
             }
         }
+        System.out.println(seances);
         return createCalendarMap(calendarActivities);
     }
 

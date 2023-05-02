@@ -11,6 +11,8 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -51,6 +53,8 @@ public class ModifierRecController implements Initializable {
     private TextField idsujet;
     @FXML
     private TextField iduser;
+    
+     ObservableList<Reclamation> data=FXCollections.observableArrayList();
 ReclamationService rs = new ReclamationService();
 int index=-1;
     /**
@@ -58,8 +62,21 @@ int index=-1;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+            refreshList();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifierRecController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }    
+       public void refreshList() throws SQLException{
+        data.clear();
+        data=FXCollections.observableArrayList(rs.afficheListeR());
+        csujet.setCellValueFactory(new PropertyValueFactory<>("sujet"));
+        cdescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        cnom.setCellValueFactory(new PropertyValueFactory<>("nom_client"));
+        cetat.setCellValueFactory(new PropertyValueFactory<>("etat"));
+        tvreclamation.setItems(data);
+    }
 
     @FXML
     private void modifier(ActionEvent event) throws SQLException {
@@ -69,8 +86,8 @@ int index=-1;
             r.setNom_client(idnom.getText());
             r.setSujet(idsujet.getText());
             r.setDescription(iddescription.getText());
-            rs.modifierO(r);
-
+            rs.modifierO(r,Integer.valueOf(iduser.getText()));
+            System.out.println(iduser.getText());
 
                List<Reclamation> reclamations = rs.getAllReclamationsByUserId(Integer.valueOf(iduser.getText()));
                                                           
@@ -115,6 +132,10 @@ idnom.setText(cetat.getCellData(index).toString());
         } catch (SQLException ex) {
             System.out.println("error" + ex.getMessage());
         }
+    }
+
+    @FXML
+    private void update(MouseEvent event) {
     }
     
 }

@@ -65,6 +65,62 @@ public class SeanceService implements NewInterface<Seance>{
       
         return Seances;
     }
+    
+    public List<Seance> getSeancesCoach(int id) {
+        List<Seance> Seances = new ArrayList<>();
+        String sql="select * from Seance";
+        Statement ste;
+        try {
+            ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(sql);
+            while(rs.next()){
+                if(rs.getInt("coach_id_id")==id){
+                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
+                Seances.add(p);                    
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+        return Seances;
+    }
+    public List<Seance> getSeancesClient(String ad) {
+        List<Seance> Seances = new ArrayList<>();
+        String sql="select * from Seance";
+        Statement ste;
+        try {
+            ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(sql);
+            while(rs.next()){
+                if(rs.getString("adresse_client").equals(ad)){
+                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
+                Seances.add(p);                    
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+        return Seances;
+    }
+   /* public List<Seance> GetSeancesForCoach(int id) {
+        List<Seance> Seances = new ArrayList<>();
+        String sql="select * from Seance";
+        Statement ste;
+        try {
+            ste = cnx.createStatement();
+            ResultSet rs = ste.executeQuery(sql);
+            while(rs.next()){
+                Seance p = new Seance(rs.getInt(1),us.read(rs.getInt("coach_id_id")),ps.read(rs.getInt("emplacement_id")),rs.getDate("date"),rs.getString("etat"),rs.getString("duree"),rs.getString("adresse_client"),rs.getString("message"));
+                Seances.add(p);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+      
+        return Seances;
+    }*/
 
     @Override
     public void supprimer(Seance t) {
@@ -106,7 +162,7 @@ public class SeanceService implements NewInterface<Seance>{
             ste.setInt(1, t.getC().getId());
             ste.setInt(2, t.getE().getId());
             ste.setDate(3, t.getDate());
-            ste.setString(4, "Acceptée");
+            ste.setString(4, "Acceptee");
             ste.setString(5, t.getDuree());
             ste.setString(6, t.getAdresse_client());
             ste.setString(7, t.getMessage());

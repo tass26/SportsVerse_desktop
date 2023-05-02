@@ -6,7 +6,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#userD" onMouseClicked="#select" prefHeight="598.0" prefWidth="1316.0" style="-fx-background-color: #EAECFB;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.ModifierRecController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyReleased="#userD" onMouseClicked="#select" prefHeight="598.0" prefWidth="1316.0" style="-fx-background-color: #EAECFB;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.ModifierRecController">
    <children>
       <TableView fx:id="tvreclamation" layoutX="29.0" layoutY="30.0" onMouseClicked="#select" opacity="0.8" prefHeight="277.0" prefWidth="552.0">
         <columns>
@@ -16,7 +16,7 @@
             <TableColumn fx:id="cetat" prefWidth="95.0" text="etat" />
         </columns>
       </TableView>
-      <Button fx:id="idmodifier" layoutX="634.0" layoutY="552.0" mnemonicParsing="false" onAction="#modifier" text="Modifier" />
+      <Button fx:id="idmodifier" layoutX="634.0" layoutY="552.0" mnemonicParsing="false" onAction="#modifier" onMouseClicked="#update" text="Modifier" />
       <TextField fx:id="iddescription" layoutX="329.0" layoutY="432.0" prefHeight="35.0" prefWidth="378.0" promptText="description" style="-fx-background-color: #FFFFFF;" />
       <TextField fx:id="idnom" layoutX="329.0" layoutY="491.0" prefHeight="35.0" prefWidth="378.0" promptText="votre nom" style="-fx-background-color: #FFFFFF;" />
       <TextField fx:id="idsujet" layoutX="329.0" layoutY="378.0" prefHeight="35.0" prefWidth="378.0" promptText="sujet de la reclamation" style="-fx-background-color: #FFFFFF;" />

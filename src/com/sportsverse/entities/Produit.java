@@ -29,6 +29,16 @@ public class Produit {
         this.prix_ttc = prix_ttc;
     }
 
+    public Produit(int quantite, Categorie C, String nom_produit, String image, double prix_ttc) {
+        this.quantite = quantite;
+        this.C = C;
+        this.nom_produit = nom_produit;
+        this.image = image;
+        this.prix_ttc = prix_ttc;
+    }
+
+    
+
     public int getId() {
         return id;
     }
@@ -75,6 +85,11 @@ public class Produit {
 
     public void setPrix_ttc(double prix_ttc) {
         this.prix_ttc = prix_ttc;
+    }
+
+    @Override
+    public String toString() {
+        return "Produit{" + "id=" + id + ", quantite=" + quantite + ", C=" + C + ", nom_produit=" + nom_produit + ", image=" + image + ", prix_ttc=" + prix_ttc + '}';
     }
     
     

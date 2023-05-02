@@ -8,6 +8,7 @@ package com.sportsverse.gui;
 import com.sportsverse.entities.Seance;
 import com.sportsverse.entities.User;
 import com.sportsverse.services.SeanceService;
+import com.sportsverse.services.UserService;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -50,6 +51,7 @@ public class ListDemandeController implements Initializable {
     private Scene scene;
     private Parent root;
     SeanceService ss= new SeanceService();
+    UserService us=new UserService();
     @FXML
     private Button SuiviSeance1;
     /**
@@ -61,7 +63,7 @@ public class ListDemandeController implements Initializable {
         List<Seance> seances = new ArrayList<>();
         seances = ss.afficher();
         for(int i=0; i<seances.size(); i++){
-            if (seances.get(i).getEtat().equals("en attente") == true){
+            if ((seances.get(i).getEtat().equals("en attente") == true)&&(seances.get(i).getC().getId()==UserService.getCurrentUser().getId())){
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("SeanceCard.fxml"));
             try {

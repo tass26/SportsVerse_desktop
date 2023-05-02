@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sportsverse.gui.Inter_adm_listController">
+ <children>
+      <BorderPane layoutY="-3.0" prefHeight="658.0" prefWidth="1290.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <VBox prefHeight="390.0" prefWidth="200.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
+               <children>
+                  <Button alignment="BASELINE_LEFT" cache="true" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="218.0" style="-fx-background-color: #1E1E1E;" styleClass="mainFxmlClass" text="list User" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ressource/list_user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets></Button>
+                  <Button fx:id="gotoEchangeBtn" alignment="BASELINE_LEFT" cache="true" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#redirProduit" prefHeight="58.0" prefWidth="218.0" style="-fx-background-color: #1E1E1E;" styleClass="mainFxmlClass" text="produit" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ressource/buying.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" cache="true" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="218.0" style="-fx-background-color: #1E1E1E;" text="Commande" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ressource/shopping-basket%20(1).png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button alignment="BASELINE_LEFT" cache="true" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#RedirRec" prefHeight="58.0" prefWidth="218.0" style="-fx-background-color: #1E1E1E;" styleClass="mainFxmlClass" text="Reclamation" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@ressource/complain.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button fx:id="SuiviSeance" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#RedirSuivi" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #1E1E1E;" stylesheets="@styling.css" text="Suivi Seance" textFill="#fcfcfb">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/reservation.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="SuiviSeance1" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#RedirCoach" onMouseClicked="#RedirStat" prefHeight="35.0" prefWidth="138.0" style="-fx-background-color: #1E1E1E;" stylesheets="@styling.css" text="Stats" textFill="#fcfcfb">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="36.0" onMouseClicked="#RedirStat" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
+         <top>
+            <HBox prefHeight="65.0" prefWidth="1100.0" style="-fx-background-color: #1E1E1E;" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="66.0" prefWidth="1092.0" style="-fx-background-color: #1E1E1E;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <children>
+                        <Pane prefHeight="55.0" prefWidth="390.0">
+                           <HBox.margin>
+                              <Insets left="700.0" top="10.0" />
+                           </HBox.margin>
+                           <children>
+                              <ImageView fitHeight="29.0" fitWidth="22.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@ressource/search.png" />
+                                 </image>
+                              </ImageView>
+                              <TextField fx:id="filterField" layoutX="44.0" layoutY="12.0" onKeyPressed="#filter" onKeyReleased="#filter" onKeyTyped="#filter" />
+                              <Button layoutX="296.0" layoutY="11.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="113.0" style="-fx-background-color: #1E1E1E;" text="logout" textFill="WHITE">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@ressource/logout.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children></HBox>
+         </top>
+         <center>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="1018.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView prefHeight="486.0" prefWidth="648.0" fx:id="xtable">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="Nom" fx:id="xnom" />
+                      <TableColumn prefWidth="81.60000610351562" text="Prenom" fx:id="xprenom" />
+                        <TableColumn prefWidth="82.4000244140625" text="Adresse" fx:id="xadresse" />
+                        <TableColumn prefWidth="119.19998168945312" text="num°-tel" fx:id="xtel" />
+                        <TableColumn prefWidth="172.79998779296875" text="Email" fx:id="xemail" />
+                        <TableColumn minWidth="0.0" prefWidth="114.4000244140625" text="Role" fx:id="xrole" />
+                        <TableColumn minWidth="0.0" prefWidth="114.4000244140625" text="Role" fx:id="xid" />
+                    </columns>
+                  </TableView>
+                  <AnchorPane prefHeight="486.0" prefWidth="378.0" style="-fx-background-color: #1E1E1E;">
+                     <children>
+                        <Button layoutX="29.0" layoutY="37.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #131E6C;" text="supprimer" textFill="WHITE" />
+                        <TextField fx:id="Mnom" layoutX="144.0" layoutY="150.0" prefHeight="26.0" prefWidth="174.0" />
+                        <TextField fx:id="Mprenom" layoutX="138.0" layoutY="196.0" prefHeight="26.0" prefWidth="186.0" />
+                        <TextField fx:id="Madresse" layoutX="138.0" layoutY="243.0" prefHeight="26.0" prefWidth="185.0" />
+                        <TextField fx:id="Mtel" layoutX="138.0" layoutY="297.0" prefHeight="26.0" prefWidth="185.0" />
+                        <TextField fx:id="Memail" layoutX="148.0" layoutY="343.0" prefHeight="26.0" prefWidth="166.0" />
+                        <Label layoutX="63.0" layoutY="153.0" prefHeight="18.0" prefWidth="56.0" text="nom" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="67.0" layoutY="199.0" text="prenom" textFill="#fffbfb">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="67.0" layoutY="246.0" text="Adresse" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="65.0" layoutY="300.0" text="Num_tel" textFill="WHITE">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="91.0" layoutY="346.0" text="email" textFill="#fffdfd">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="63.0" layoutY="105.0" prefHeight="35.0" prefWidth="291.0" text="modifiez vous information " textFill="#243fef">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="243.0" layoutY="416.0" mnemonicParsing="false" onAction="#modifier_User" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #131E6C;" text="modifier" textFill="WHITE" />
+                        <Button layoutX="138.0" layoutY="37.0" mnemonicParsing="false" onAction="#bloquer" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #131E6C;" text="bloquer" textFill="WHITE" />
+                        <Button layoutX="250.0" layoutY="37.0" mnemonicParsing="false" onAction="#debloquer" prefHeight="26.0" prefWidth="97.0" style="-fx-background-color: #131E6C;" text="debloquer" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </children></HBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -109,7 +109,7 @@ public class AjouterCvController implements Initializable {
     private void RedirSuivi(ActionEvent event) {
     }
 
-    @FXML
+/*    @FXML
     private void Ajouter(ActionEvent event) {
         int dur = sp_duree.getValue();
         String certif = txt_certif.getText();
@@ -140,7 +140,7 @@ public class AjouterCvController implements Initializable {
         }
         
 
-    }
+    }*/
 
     @FXML
     private void RedirCoach(ActionEvent event) {

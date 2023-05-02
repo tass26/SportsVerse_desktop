@@ -31,7 +31,7 @@ public class CvService implements NewInterface<Cv>{
         cnx = MaConnection.getInstance().getCnx();
     }
     
-    public Cv getCvById(int id) throws SQLException {
+    /*public Cv getCvById(int id) throws SQLException {
         sql = "SELECT * FROM cv WHERE id = ?";
         PreparedStatement ste = cnx.prepareStatement(sql);
         ste.setInt(1, id);
@@ -52,7 +52,7 @@ public class CvService implements NewInterface<Cv>{
             return cv;
         }
         return null;
-    }
+    }*/
     
     @Override
     public void ajouter(Cv cv) {

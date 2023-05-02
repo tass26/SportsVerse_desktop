@@ -41,12 +41,16 @@ public class StatsController implements Initializable {
     UserService us = new UserService();
     @FXML
     private PieChart pieChart;
+        private Stage stage;
+    private Scene scene;
+    private Parent root;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        System.out.println(us.getCurrentUser());
         int january = 0;
         int february = 0;
         int march = 0;
@@ -221,16 +225,16 @@ public class StatsController implements Initializable {
 
     @FXML
     private void backToAccueil(MouseEvent event) {
-                        try {
-            Parent root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+                try {
+            root = FXMLLoader.load(getClass().getResource("inter_adm_list.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
-        }
+    }
     }
     
 }

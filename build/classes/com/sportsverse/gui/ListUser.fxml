@@ -11,8 +11,8 @@
    <children>
       <TableView layoutX="26.0" layoutY="78.0" prefHeight="200.0" prefWidth="569.0" fx:id="xtable">
         <columns>
-          <TableColumn prefWidth="42.4000244140625" text="id" fx:id="xid" />
-          <TableColumn prefWidth="63.199951171875" text="Nom" fx:id="xnom" />
+          <TableColumn minWidth="0.0" prefWidth="0.0" text="id" fx:id="xid" />
+          <TableColumn prefWidth="106.4000244140625" text="Nom" fx:id="xnom" />
             <TableColumn prefWidth="77.60003662109375" text="Prenom" fx:id="xprenom" />
             <TableColumn prefWidth="65.5999755859375" text="Adresse" fx:id="xadresse" />
             <TableColumn prefWidth="97.5999755859375" text="Numéro télephone" fx:id="xtel" />

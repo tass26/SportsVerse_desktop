@@ -8,6 +8,7 @@ package com.sportsverse.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -79,7 +80,6 @@ public class AccueilController implements Initializable {
         
     }
 
-    @FXML
     private void EspaceAdmin(MouseEvent event) {
                 try {
             root = FXMLLoader.load(getClass().getResource("SuiviSeanceClient.fxml"));
@@ -91,6 +91,16 @@ public class AccueilController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
     }
     
 }

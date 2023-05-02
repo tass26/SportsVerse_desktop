@@ -42,11 +42,13 @@ public class ReclamationController implements Initializable {
     @FXML
     private TextField idsujet; 
     @FXML
-    private TextField idetat;
+   private TextField idetat;
     @FXML
     private TextField iduser; 
     ReclamationService sr=new ReclamationService();
-  
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     /**
      * Initializes the controller class.
@@ -72,9 +74,7 @@ public class ReclamationController implements Initializable {
         if(idsujet.getText().trim().isEmpty()){
             erreur+="-sujet vide\n";
         }
-        if(idetat.getText().trim().isEmpty()){
-            erreur+="-etat vide\n";
-        }
+        
       
         return erreur;
     }
@@ -92,23 +92,13 @@ public class ReclamationController implements Initializable {
             Reclamation  r =new Reclamation();
             r.setNom_client(idnom.getText());
             r.setDescription(iddescription.getText());
-            r.setEtat(idetat.getText());
+            r.setEtat("en cours");
             r.setid_user(Integer.valueOf(iduser.getText()));
             r.setSujet(idsujet.getText());
             sr.ajouterR(r);
-            try {
-                    Stage stageclose=(Stage)((Node)event.getSource()).getScene().getWindow();
-                    stageclose.close();
-                    Parent root=FXMLLoader.load(getClass().getResource("/GUI/FXMLAffichageReclamation.fxml"));
-                    Scene scene = new Scene(root);
-                    Stage primaryStage=new Stage();
-                    primaryStage.setTitle("Gestion reclamation");
-                    primaryStage.setScene(scene);
-                    primaryStage.show();
-                } catch (IOException ex) {
-                    Logger.getLogger(FXMain.class.getName()).log(Level.SEVERE, null, ex);
-
-        }}
+        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText("Reclamation Ajoutée");
     }
     
 }
