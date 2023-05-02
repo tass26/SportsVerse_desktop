@@ -5,6 +5,8 @@
  */
 package com.sportsverse.entities;
 
+import java.sql.Array;
+
 /**
  *
  * @author ASUS
@@ -18,6 +20,7 @@ public class User {
     private String adresse;
     private String num_tel;
     private String email;
+    private String roles;
     private String password;
 
     public User() {
@@ -51,6 +54,7 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
 
 
     public int getId() {
@@ -97,32 +101,55 @@ public class User {
         return adresse;
     }
 
+
     public void setAdresse(String adresse) {
         this.adresse = adresse;
+
     }
 
     public String getNum_tel() {
         return num_tel;
     }
 
-    public void setNum_tel(String num_tel) {
-        this.num_tel = num_tel;
-    }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getRoles() {
+        return roles;
     }
 
     public String getPassword() {
         return password;
     }
 
+   
+   
+
+
+
+
+
+
+    public void setRoles(String roles) {
+        this.roles = roles;}
+
+   
+
     public void setPassword(String password) {
         this.password = password;
     }
-  
+
+
+
+    
+    
+    
+   
+    
 }
+
+  
+
+
