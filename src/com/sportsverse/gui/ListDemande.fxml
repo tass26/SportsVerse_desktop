@@ -36,56 +36,17 @@
                            </image></ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="Login" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Login" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
+                  <Button mnemonicParsing="false" onAction="#logout" prefHeight="36.0" prefWidth="108.0" style="-fx-background-color: #282828;" text="Deconnecter" textFill="WHITE">
                      <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="29.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@icons/login2.png" />
+                              <Image url="@ressource/logout.png" />
                            </image>
                         </ImageView>
                      </graphic>
-                  </Button>
-                  <Label prefHeight="18.0" prefWidth="138.0" text="Shop" textFill="#c1bdbd">
                      <font>
-                        <Font name="Times New Roman" size="12.0" />
+                        <Font size="9.0" />
                      </font>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Button fx:id="Produit" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Produit" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/barbell.png" />
-                           </image></ImageView>
-                     </graphic>
-                  </Button>
-                  <Button fx:id="Panier" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Panier" textFill="#fcfcfb">
-                     <font>
-                        <Font name="Times New Roman" size="13.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </opaqueInsets>
-                     <graphic>
-                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@icons/wicker-basket.png" />
-                           </image></ImageView>
-                     </graphic>
                   </Button>
                   <Label prefHeight="18.0" prefWidth="138.0" text="Coaching" textFill="#c7c4c4">
                      <VBox.margin>
@@ -118,6 +79,21 @@
                            <image>
                               <Image url="@icons/reservation.png" />
                            </image></ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="SuiviSeance2" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#RedirReclamer" prefHeight="35.0" prefWidth="138.0" stylesheets="@styling.css" text="Reclamer" textFill="#fcfcfb">
+                     <font>
+                        <Font name="Times New Roman" size="13.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </opaqueInsets>
+                     <graphic>
+                        <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@icons/complaint.png" />
+                           </image>
+                        </ImageView>
                      </graphic>
                   </Button>
                </children>

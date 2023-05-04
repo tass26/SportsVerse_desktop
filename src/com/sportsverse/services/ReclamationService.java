@@ -14,6 +14,7 @@ import java.util.List;
 import com.sportsverse.tools.MaConnection;
 import com.sportsverse.entities.Reclamation;
 import com.sportsverse.entities.User;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -53,7 +54,9 @@ Statement stm;
 
     @Override
     public void ajouterR(Reclamation r) throws SQLException {
-String req ="INSERT INTO `reclamation`(`user_id_id`, `sujet`, `description`, `etat`,  `nom_client`) VALUES ('"+r.getid_user()+"','"+r.getSujet()+"','"+r.getDescription()+"','"+r.getEtat()+"','"+r.getNom_client()+"')";   
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateString = formatter.format(r.getDate());
+String req ="INSERT INTO `reclamation`(`user_id_id`, `sujet`, `description`, `etat`,`date`,  `nom_client`) VALUES ('"+r.getid_user()+"','"+r.getSujet()+"','"+r.getDescription()+"','"+r.getEtat()+"','"+dateString+"','"+r.getNom_client()+"')";   
         stm = conx.createStatement();
         stm.executeUpdate(req);
         System.out.println("Reclamation ajoutée");

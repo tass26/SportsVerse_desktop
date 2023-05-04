@@ -43,8 +43,6 @@ public class ReserverSeanceController implements Initializable {
     @FXML
     private Button Accueil;
     @FXML
-    private Button Login;
-    @FXML
     private Button Produit;
     @FXML
     private Button Panier;
@@ -100,11 +98,32 @@ public class ReserverSeanceController implements Initializable {
 
     @FXML
     private void RedirAccueil(ActionEvent event) {
+                if(UserService.getCurrentUser().getRole().equals("[\"ROLE_CLIENT\"]")){
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
+        else{
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListDemande.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
     }
 
-    @FXML
-    private void Login(ActionEvent event) {
-    }
 
     @FXML
     private void RedirProduit(ActionEvent event) {
@@ -167,6 +186,30 @@ public class ReserverSeanceController implements Initializable {
         System.out.println(adresse);
         Seance s = new Seance(u.read(CoachId),ep.read(Character.getNumericValue(Emp.charAt(0))),d,Etat,dur,adresse,msg);
         ss.ajouter(s);
+        if(UserService.getCurrentUser().getRole().equals("[\"ROLE_CLIENT\"]")){
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
+        else{
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListDemande.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
     }
 
     @FXML
@@ -208,7 +251,40 @@ public class ReserverSeanceController implements Initializable {
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }        if(UserService.getCurrentUser().getRole().equals("[\"ROLE_CLIENT\"]")){
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
+        }
+        else{
+                    try {
+            root = FXMLLoader.load(getClass().getResource("LsitDemande.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
     }
     
 }

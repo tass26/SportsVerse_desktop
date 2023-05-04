@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -38,12 +39,6 @@ public class ListDemandeController implements Initializable {
     @FXML
     private Button Accueil;
     @FXML
-    private Button Login;
-    @FXML
-    private Button Produit;
-    @FXML
-    private Button Panier;
-    @FXML
     private Button SuiviSeance;
     @FXML
     private HBox DemandeList;
@@ -54,6 +49,8 @@ public class ListDemandeController implements Initializable {
     UserService us=new UserService();
     @FXML
     private Button SuiviSeance1;
+    @FXML
+    private Button SuiviSeance2;
     /**
      * Initializes the controller class.
      */
@@ -81,8 +78,9 @@ public class ListDemandeController implements Initializable {
 
     @FXML
     private void Accueil(MouseEvent event) {
-                try {
-            root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
+        if(UserService.getCurrentUser().getRole().equals("[\"ROLE_CLIENT\"]")){
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
             stage = (Stage)((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -90,6 +88,19 @@ public class ListDemandeController implements Initializable {
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }
+        }
+        else{
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListDemande.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
         }
     }
 
@@ -119,6 +130,30 @@ public class ListDemandeController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void RedirReclamer(MouseEvent event) {
+                try {
+            root = FXMLLoader.load(getClass().getResource("Reclamation.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
     }
     
 }

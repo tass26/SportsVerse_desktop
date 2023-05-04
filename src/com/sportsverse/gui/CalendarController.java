@@ -56,6 +56,9 @@ public class CalendarController implements Initializable {
     UserService us = new UserService();
     EmplacementService ps = new EmplacementService();
     SeanceService ss= new SeanceService();
+        private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -156,7 +159,7 @@ private void drawCalendar() {
       String min =format.format(utilDate);
             Emplacement E = ps.read(calendarActivities.get(k).getE().getId());
             Text text = new Text(E.getGovernorat()+" "+E.getDelegation()+ "\n " + hours + ":" + min);
-            String nomClient=us.getUserByAdress(calendarActivities.get(k).getAdresse_client()).getNom();
+            String nomClient=us.getUserByAdress(calendarActivities.get(k).getAdresse_client()).getPrenom();
             String Message = calendarActivities.get(k).getMessage();
             calendarActivityBox.getChildren().add(text);
             text.setOnMouseClicked(mouseEvent -> {
@@ -220,15 +223,29 @@ private void drawCalendar() {
 
     @FXML
     private void backToAccueil(MouseEvent event) {
-                        try {
-            Parent root = FXMLLoader.load(getClass().getResource("Accueil.fxml"));
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
+        if(UserService.getCurrentUser().getRole().equals("[\"ROLE_CLIENT\"]")){
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListCoach.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
 
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
+        }
+        }
+        else{
+                    try {
+            root = FXMLLoader.load(getClass().getResource("ListDemande.fxml"));
+            stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
         }
     }
 }

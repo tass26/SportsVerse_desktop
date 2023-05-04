@@ -35,8 +35,6 @@ public class AjouterEmplacementController implements Initializable {
     @FXML
     private Button Accueil;
     @FXML
-    private Button Login;
-    @FXML
     private Button Produit;
     @FXML
     private Button Panier;
@@ -88,9 +86,6 @@ public class AjouterEmplacementController implements Initializable {
     private void RedirAccueil(ActionEvent event) {
     }
 
-    @FXML
-    private void Login(ActionEvent event) {
-    }
 
     @FXML
     private void RedirProduit(ActionEvent event) {
@@ -128,6 +123,16 @@ public class AjouterEmplacementController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) throws IOException {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("SignIn.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
     }
     
     
